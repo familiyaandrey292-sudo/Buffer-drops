@@ -1,17 +1,8 @@
-﻿Set-Location "C:\Proj\Agents\Agent_ChatAi\Buffer-drops"
+﻿
 
-git init
-git branch -M main
+    Каталог: C:\Proj\Agents\Agent_ChatAi\Buffer-drops
 
-$t = Get-Clipboard -Raw
-if ([string]::IsNullOrWhiteSpace($t)) { $t = "empty clipboard" }
 
-Set-Content latest.txt -Value $t -Encoding UTF8
-
-git add latest.txt
-git commit -m "Initial latest.txt"
-
-git remote remove origin 2>$null
-git remote add origin "https://github.com/familiyaandrey292-sudo/Buffer-drops.git"
-
-git push -u origin main
+Mode                 LastWriteTime         Length Name                                                                                                                                      
+----                 -------------         ------ ----                                                                                                                                      
+-a----        26.09.2026      1:43            441 latest.txt
