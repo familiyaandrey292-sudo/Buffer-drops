@@ -1,8 +1,1 @@
-﻿
-
-    Каталог: C:\Proj\Agents\Agent_ChatAi\Buffer-drops
-
-
-Mode                 LastWriteTime         Length Name                                                                                                                                      
-----                 -------------         ------ ----                                                                                                                                      
--a----        26.09.2026      1:43            441 latest.txt
+﻿$r = Get-Clipboard -Raw; Set-Location "C:\Proj\Agents\Agent_ChatAi\Buffer-drops"; Set-Content latest.txt -Value $r -Encoding UTF8; git add latest.txt; if (git status --porcelain) { git commit -m "Update latest.txt"; git push }; Set-Clipboard "GitHub: Buffer-drops/latest.txt"
