@@ -1,0 +1,15 @@
+﻿New-Item -ItemType Directory -Force Buffer-drops | Out-Null
+Set-Location Buffer-drops
+
+git init
+git branch -M main
+
+$t = Get-Clipboard -Raw
+if ([string]::IsNullOrWhiteSpace($t)) { $t = "empty clipboard" }
+
+Set-Content latest.txt -Value $t -Encoding UTF8
+
+git add latest.txt
+git commit -m "Initial latest.txt"
+
+gh repo create Buffer-drops --private --source=. --remote=origin --push
