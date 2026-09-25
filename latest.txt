@@ -1,17 +1,17 @@
-﻿$repo = "C:\Proj\Agents\Agent_ChatAi\Buffer-drops"
-
-New-Item -ItemType Directory -Force $repo | Out-Null
-Set-Location $repo
+﻿Set-Location "C:\Proj\Agents\Agent_ChatAi\Buffer-drops"
 
 git init
 git branch -M main
 
 $t = Get-Clipboard -Raw
-if ([string]::IsNullOrWhiteSpace($t)) {
-    $t = "empty clipboard"
-}
+if ([string]::IsNullOrWhiteSpace($t)) { $t = "empty clipboard" }
 
 Set-Content latest.txt -Value $t -Encoding UTF8
 
 git add latest.txt
 git commit -m "Initial latest.txt"
+
+git remote remove origin 2>$null
+git remote add origin "https://github.com/familiyaandrey292-sudo/Buffer-drops.git"
+
+git push -u origin main
