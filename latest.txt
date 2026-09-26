@@ -1,12 +1,12 @@
-﻿python : ...........................................F............................................................
-строка:1 знак:48
-+ ... ChatAi'; $o=python -m unittest discover -s tests -p 'test*.py' 2>&1 | ...
-+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : NotSpecified: (.................................:String) [], RemoteException
+﻿python : ..........F..........
+строка:1 знак:391
++ ... g UTF8}; $o=python -m unittest tests.test_browser_discovery.TestBrows ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (..........F..........:String) [], RemoteException
     + FullyQualifiedErrorId : NativeCommandError
  
 ======================================================================
-FAIL: test_discovery_has_trace_instrumentation (test_browser_discovery.TestBrowserDiscoveryStatic.test_discovery_has_trace_instrumentation)
+FAIL: test_discovery_has_trace_instrumentation (tests.test_browser_discovery.TestBrowserDiscoveryStatic.test_discovery_has_trace_instrumentation)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
   File "C:\Proj\Agents\Agent_ChatAi\tests\test_browser_discovery.py", line 227, in test_discovery_has_trace_instrumentation
@@ -540,29 +540,7 @@ ue,\n        characterData: true\n    }\n);\n\nscheduleInspectDocument();\nobser
        toggleCommandPanel();\n    }\n}\n\nwindow.addEventListener(\n    "keydown",\n    agentChataiBridgeShortcutHandler,\n    true\n);\n\n\n\n\n'
 
 ----------------------------------------------------------------------
-Ran 104 tests in 7.706s
+Ran 21 tests in 0.019s
 
 FAILED (failures=1)
-[GatewayHTTP] "POST /v1/action HTTP/1.1" 200 -
-[GatewayHTTP] "POST /v1/action HTTP/1.1" 200 -
-[GatewayHTTP] "POST /v1/cancel HTTP/1.1" 200 -
-[GatewayHTTP] "POST /v1/confirm HTTP/1.1" 409 -
-[GatewayHTTP] "POST /v1/command HTTP/1.1" 200 -
-[GatewayHTTP] "POST /v1/command HTTP/1.1" 409 -
-[GatewayHTTP] "POST /v1/action HTTP/1.1" 200 -
-[GatewayHTTP] "POST /v1/confirm HTTP/1.1" 200 -
-[GatewayHTTP] "POST /v1/confirm HTTP/1.1" 409 -
-[GatewayHTTP] "POST /v1/action HTTP/1.1" 200 -
-[GatewayHTTP] "POST /v1/action HTTP/1.1" 200 -
-[GatewayHTTP] "POST /v1/action HTTP/1.1" 401 -
-[GatewayHTTP] "POST /v1/action HTTP/1.1" 200 -
-[GatewayHTTP] "POST /v1/cancel HTTP/1.1" 200 -
-[GatewayHTTP] "POST /v1/confirm HTTP/1.1" 409 -
-[GatewayHTTP] "POST /v1/action HTTP/1.1" 200 -
-[GatewayHTTP] "POST /v1/confirm HTTP/1.1" 200 -
-[GatewayHTTP] "GET /v1/auth/challenge HTTP/1.1" 200 -
-[GatewayHTTP] "POST /v1/action HTTP/1.1" 200 -
-[GatewayHTTP] "GET /v1/auth/challenge HTTP/1.1" 200 -
-[GatewayHTTP] "POST /v1/action HTTP/1.1" 401 -
-[GatewayHTTP] "POST /v1/action HTTP/1.1" 401 -
 
