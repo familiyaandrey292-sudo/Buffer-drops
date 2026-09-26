@@ -1,555 +1,143 @@
-﻿python : test_bridge_generated_composer_has_reprocessing_guard (tests.test_browser_chat_bridge_static.TestBrowserChatBridgeStatic.test_bridge_generated_composer_has_reprocessing_guard) ...
- ok
+﻿python : test_action_cannot_be_decoded_as_result (tests.test_MSGv1.TestMSGv1.test_action_cannot_be_decoded_as_result) ... ok
 строка:1 знак:48
-+ ... ChatAi';$r=(python -m unittest tests.test_browser_chat_bridge_static  ...
-+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : NotSpecified: (test_bridge_gen...g_guard) ... ok:String) [], RemoteException
++ ... \Agents\Agent_ChatAi';$r=(python -m unittest discover -v 2>&1|Out-Str ...
++                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (test_action_can..._result) ... ok:String) [], RemoteException
     + FullyQualifiedErrorId : NativeCommandError
  
+test_action_roundtrip (tests.test_MSGv1.TestMSGv1.test_action_roundtrip) ... ok
+test_action_survives_chat_text (tests.test_MSGv1.TestMSGv1.test_action_survives_chat_text) ... ok
+test_action_tamper_is_detected (tests.test_MSGv1.TestMSGv1.test_action_tamper_is_detected) ... ok
+test_result_roundtrip_with_hmac (tests.test_MSGv1.TestMSGv1.test_result_roundtrip_with_hmac) ... ok
+test_result_wrong_secret_is_rejected (tests.test_MSGv1.TestMSGv1.test_result_wrong_secret_is_rejected) ... ok
+test_fresh_action_timestamp_is_accepted (tests.test_MSGv1_timestamp.TestMSGv1Timestamp.test_fresh_action_timestamp_is_accepted) ... ok
+test_future_action_timestamp_is_rejected (tests.test_MSGv1_timestamp.TestMSGv1Timestamp.test_future_action_timestamp_is_rejected) ... ok
+test_old_action_timestamp_is_rejected (tests.test_MSGv1_timestamp.TestMSGv1Timestamp.test_old_action_timestamp_is_rejected) ... ok
+test_list_files (tests.test_agent.TestPCAgent.test_list_files) ... ok
+test_list_files_requires_directory (tests.test_agent.TestPCAgent.test_list_files_requires_directory) ... ok
+test_missing_executable (tests.test_agent.TestPCAgent.test_missing_executable) ... ok
+test_system_info (tests.test_agent.TestPCAgent.test_system_info) ... ok
+test_unknown_action (tests.test_agent.TestPCAgent.test_unknown_action) ... ok
+test_concurrent_writes_remain_valid_jsonl (tests.test_audit.TestAuditLogger.test_concurrent_writes_remain_valid_jsonl) ... ok
+test_invalid_rotation_configuration_is_rejected (tests.test_audit.TestAuditLogger.test_invalid_rotation_configuration_is_rejected) ... ok
+test_record_writes_jsonl (tests.test_audit.TestAuditLogger.test_record_writes_jsonl) ... ok
+test_rotates_when_size_limit_is_exceeded (tests.test_audit.TestAuditLogger.test_rotates_when_size_limit_is_exceeded) ... ok
+test_rotation_keeps_jsonl_chain_valid (tests.test_audit.TestAuditLogger.test_rotation_keeps_jsonl_chain_valid) ... ok
+test_sensitive_action_arguments_are_not_written (tests.test_audit.TestAuditLogger.test_sensitive_action_arguments_are_not_written) ... ok
+test_allowed_action_and_result_are_audited (tests.test_audit_integration.TestAuditIntegration.test_allowed_action_and_result_are_audited) ... ok
+test_confirmation_lifecycle_is_audited (tests.test_audit_integration.TestAuditIntegration.test_confirmation_lifecycle_is_audited) ... ok
+test_challenge_is_one_time (tests.test_browser_auth.TestBrowserAuth.test_challenge_is_one_time) ... ok
+test_invalid_signature_does_not_consume_challenge (tests.test_browser_auth.TestBrowserAuth.test_invalid_signature_does_not_consume_challenge) ... ok
+test_tampered_body_is_rejected (tests.test_browser_auth.TestBrowserAuth.test_tampered_body_is_rejected) ... ok
+test_valid_signed_request (tests.test_browser_auth.TestBrowserAuth.test_valid_signed_request) ... ok
+test_wrong_path_is_rejected (tests.test_browser_auth.TestBrowserAuth.test_wrong_path_is_rejected) ... ok
+test_cancel_button_sends_cancel_message (tests.test_browser_cancel_static.TestBrowserCancelStatic.test_cancel_button_sends_cancel_message) ... ok
+test_cancel_success_clears_confirmation_ui (tests.test_browser_cancel_static.TestBrowserCancelStatic.test_cancel_success_clears_confirmation_ui) ... ok
+test_bridge_generated_composer_has_reprocessing_guard (tests.test_browser_chat_bridge_static.TestBrowserChatBridgeStatic.test_bridge_generated_composer_has_reprocessing_guard) ... ok
 test_chat_output_bridge_exists (tests.test_browser_chat_bridge_static.TestBrowserChatBridgeStatic.test_chat_output_bridge_exists) ... ok
 test_command_container_is_detected_and_forwarded (tests.test_browser_chat_bridge_static.TestBrowserChatBridgeStatic.test_command_container_is_detected_and_forwarded) ... ok
-test_command_result_is_auto_submitted (tests.test_browser_chat_bridge_static.TestBrowserChatBridgeStatic.test_command_result_is_auto_submitted) ... FAIL
+test_command_result_is_auto_submitted (tests.test_browser_chat_bridge_static.TestBrowserChatBridgeStatic.test_command_result_is_auto_submitted) ... ok
 test_mutation_observer_tracks_text_changes (tests.test_browser_chat_bridge_static.TestBrowserChatBridgeStatic.test_mutation_observer_tracks_text_changes) ... ok
 test_published_result_is_not_reprocessed_as_duplicate (tests.test_browser_chat_bridge_static.TestBrowserChatBridgeStatic.test_published_result_is_not_reprocessed_as_duplicate) ... ok
 test_result_is_published_after_confirmation (tests.test_browser_chat_bridge_static.TestBrowserChatBridgeStatic.test_result_is_published_after_confirmation) ... ok
 test_result_is_published_after_direct_action (tests.test_browser_chat_bridge_static.TestBrowserChatBridgeStatic.test_result_is_published_after_direct_action) ... ok
-
-======================================================================
-FAIL: test_command_result_is_auto_submitted (tests.test_browser_chat_bridge_static.TestBrowserChatBridgeStatic.test_command_result_is_auto_submitted)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "C:\Proj\Agents\Agent_ChatAi\tests\test_browser_chat_bridge_static.py", line 43, in test_command_result_is_auto_submitted
-    self.assertIn('""submitted""', self.text)
-AssertionError: '""submitted""' not found in '\ufeff"use strict";\n\nchrome.runtime.onMessage.addListener(\n    (message, sender, sendResponse) => {\n        if (\n            message?.typ
-e ===\n            "AGX_CHAT_DISCOVERY_START"\n        ) {\n            sendResponse(\n                startChatDiscovery(\n                    message.phrase,\n                    message
-.expectedResult\n                )\n            );\n            return false;\n        }\n\n        if (\n            message?.type ===\n            "AGX_CHAT_DISCOVERY_STOP"\n        ) {\
-n            sendResponse(\n                stopChatDiscovery()\n            );\n            return false;\n        }\n\n        if (\n            message?.type ===\n            "AGX_CHAT_
-DISCOVERY_STATE"\n        ) {\n            sendResponse(\n                getChatDiscoveryState()\n            );\n            return false;\n        }\n        if (message?.type === "AGX_
-GET_BRIDGE_STATE") {\n            sendResponse({\n                ok: true,\n                enabled: commandBridgeEnabled === true\n            });\n            return false;\n        }\n
-\n        if (message?.type === "AGX_SET_BRIDGE_STATE") {\n            const enabled =\n                message.enabled === true;\n\n            if (enabled) {\n                openCommand
-Panel();\n            } else {\n                closeCommandPanel();\n            }\n\n            sendResponse({\n                ok: true,\n                enabled: commandBridgeEnabled 
-=== true\n            });\n\n            return false;\n        }\n    }\n);\n\n\ndocument.documentElement.dataset.agentChataiBridge = "loaded";\n\nconst AGX_ACTION_PATTERN =\n    /AGX1:A:
-[A-Za-z0-9_-]+:[A-Fa-f0-9]{64}/g;\n\nconst AGX_COMMAND_PATTERN =\n    /AGX1:C:[A-Za-z0-9_-]+:[A-Fa-f0-9]{64}/g;\nlet lastCommandContainer = null;\nlet lastContainer = null;\nlet confirmati
-onToken = null;\nlet confirmationBar = null;\nlet lastPublishedResult = null;\nlet bridgeGeneratedComposer = null;\nconst BRIDGE_SEND_RETRY_MS = 100;\nconst BRIDGE_SEND_MAX_ATTEMPTS = 25;\
-nconst CHAT_DISCOVERY_STORAGE_KEY =\n    "agentChataiChatDiscovery";\n\nlet chatDiscoveryProfile =\n    loadChatDiscoveryProfile();\n\nconst chatDiscovery = {\n    active: false,\n    phas
-e: "idle",\n    phrase: "",\n    expectedResult: "",\n    preSendPageText: "",\n    composer: null,\n    sendButton: null,\n    pendingSendButton: null,\n    pendingSendStartedAt: null,\n 
-   messageElement: null,\n    preSendPhraseElements: [],\n    preSendResultElements: [],\n    trace: [],\n    traceStartedAt: null,\n    scanCount: 0\n};\n\nconst CHAT_DISCOVERY_TRACE_LIMI
-T = 250;\n\nfunction describeDiscoveryElement(element) {\n    if (\n        !element ||\n        element.nodeType !== 1 ||\n        typeof element.getAttribute !== "function"\n    ) {\n   
-     return null;\n    }\n\n    const text =\n        String(\n            element.getAttribute("aria-label") ||\n            element.getAttribute("data-testid") ||\n            element.ge
-tAttribute("title") ||\n            element.textContent ||\n            ""\n        )\n            .replace(/\\s+/g, " ")\n            .trim();\n\n    return {\n        tag: element.tagNam
-e?.toLowerCase() || "",\n        id: element.id || "",\n        role: element.getAttribute("role") || "",\n        ariaLabel:\n            element.getAttribute("aria-label") || "",\n      
-  testId:\n            element.getAttribute("data-testid") || "",\n        title:\n            element.getAttribute("title") || "",\n        text:\n            text.length > 120\n         
-       ? text.slice(0, 117) + "..."\n                : text,\n        selector:\n            getElementSelector(element)\n    };\n}\n\nfunction discoveryTrace(\n    event,\n    data = {}\n
-) {\n    const now = new Date();\n\n    if (!chatDiscovery.traceStartedAt) {\n        chatDiscovery.traceStartedAt =\n            now.toISOString();\n    }\n\n    chatDiscovery.trace.push(
-{\n        t: now.toISOString(),\n        event,\n        ...data\n    });\n\n    if (\n        chatDiscovery.trace.length >\n        CHAT_DISCOVERY_TRACE_LIMIT\n    ) {\n        chatDisco
-very.trace.splice(\n            0,\n            chatDiscovery.trace.length -\n                CHAT_DISCOVERY_TRACE_LIMIT\n        );\n    }\n}\n\nfunction discoveryTraceEventPath(event) {\
-n    return (event?.composedPath?.() || [])\n        .filter(isDiscoveryElement)\n        .slice(0, 20)\n        .map(describeDiscoveryElement);\n}\n\nfunction loadChatDiscoveryProfile() {
-\n    try {\n        const raw =\n            localStorage.getItem(\n                CHAT_DISCOVERY_STORAGE_KEY\n            );\n\n        if (!raw) {\n            return {};\n        }\n\
-n        const value = JSON.parse(raw);\n\n        return value &&\n            typeof value === "object"\n            ? value\n            : {};\n    } catch (_) {\n        return {};\n  
-  }\n}\n\nfunction saveChatDiscoveryProfile() {\n    try {\n        localStorage.setItem(\n            CHAT_DISCOVERY_STORAGE_KEY,\n            JSON.stringify(\n                chatDiscove
-ryProfile\n            )\n        );\n    } catch (_) {}\n}\n\nfunction cssEscapeValue(value) {\n    if (\n        globalThis.CSS &&\n        typeof CSS.escape === "function"\n    ) {\n   
-     return CSS.escape(String(value));\n    }\n\n    return String(value)\n        .replace(/\\\\/g, "\\\\\\\\")\n        .replace(/"/g, \'\\\\"\');\n}\n\nfunction getElementSelector(eleme
-nt) {\n    if (\n        !element ||\n        !document.documentElement.contains(element)\n    ) {\n        return "";\n    }\n\n    const stableAttributes = [\n        "data-testid",\n   
-     "data-qa",\n        "data-test",\n        "aria-label",\n        "name",\n        "placeholder"\n    ];\n\n    for (const attribute of stableAttributes) {\n        const value =\n    
-        element.getAttribute(attribute);\n\n        if (!value) {\n            continue;\n        }\n\n        const selector =\n            element.tagName.toLowerCase() +\n            "[
-" + attribute + "=\\"" +\n            cssEscapeValue(value) +\n            "\\"]";\n\n        try {\n            if (\n                document.querySelectorAll(selector)\n                
-    .length === 1\n            ) {\n                return selector;\n            }\n        } catch (_) {}\n    }\n\n    const id =\n        element.getAttribute("id");\n\n    if (id) {\n
-        const selector =\n            "#" + cssEscapeValue(id);\n\n        try {\n            if (\n                document.querySelectorAll(selector)\n                    .length === 1\n
-            ) {\n                return selector;\n            }\n        } catch (_) {}\n    }\n\n    const path = [];\n    let current = element;\n\n    while (\n        current &&\n    
-    current.nodeType === Node.ELEMENT_NODE &&\n        path.length < 8\n    ) {\n        let segment =\n            current.tagName.toLowerCase();\n\n        if (current.id) {\n           
- segment +=\n                "#" + cssEscapeValue(current.id);\n            path.unshift(segment);\n            break;\n        }\n\n        let index = 1;\n        let sibling = current;\
-n\n        while (\n            sibling.previousElementSibling\n        ) {\n            sibling =\n                sibling.previousElementSibling;\n\n            if (\n                sib
-ling.tagName ===\n                current.tagName\n            ) {\n                index += 1;\n            }\n        }\n\n        segment +=\n            ":nth-of-type(" + index + ")";\
-n\n        path.unshift(segment);\n        current =\n            current.parentElement;\n    }\n\n    return path.join(" > ");\n}\n\nfunction findChatDiscoveryElement(\n    selector\n) {\
-n    if (!selector) {\n        return null;\n    }\n\n    try {\n        const element =\n            document.querySelector(selector);\n\n        return isVisibleEditable(element)\n      
-      ? element\n            : null;\n    } catch (_) {\n        return null;\n    }\n}\n\nfunction normalizeChatDiscoveryText(text) {\n    return String(text || "")\n        .replace(/\\s
-+/g, " ")\n        .trim();\n}\n\nfunction getEditableText(element) {\n    if (\n        element instanceof HTMLTextAreaElement ||\n        element instanceof HTMLInputElement\n    ) {\n  
-      return element.value || "";\n    }\n\n    return element?.innerText ||\n        element?.textContent ||\n        "";\n}\n\nfunction getDiscoveryEditableTarget(\n    target,\n    even
-t = null\n) {\n    const path =\n        event?.composedPath?.() || [];\n\n    for (const item of path) {\n        if (\n            item instanceof Element\n        ) {\n            const
- editable =\n                item.closest?.(\n                    \'[contenteditable="true"], textarea, input[type="text"], [role="textbox"]\'\n                );\n\n            if (editab
-le) {\n                return editable;\n            }\n        }\n    }\n\n    return target?.closest?.(\n        \'[contenteditable="true"], textarea, input[type="text"], [role="textbox"
-]\'\n    ) || null;\n}\n\nfunction isDiscoveryElement(item) {\n    return Boolean(\n        item &&\n        item.nodeType === 1 &&\n        typeof item.matches === "function"\n    );\n}\n
-\nfunction getTrustedUserActionTarget(\n    event,\n    composer\n) {\n    if (\n        event?.isTrusted !== true ||\n        !composer\n    ) {\n        return null;\n    }\n\n    const 
-path =\n        event.composedPath?.() || [];\n\n    const editableSelector =\n        \'[contenteditable="true"], textarea, input[type="text"], [role="textbox"]\';\n\n    for (const item 
-of path) {\n        if (!isDiscoveryElement(item)) {\n            continue;\n        }\n\n        if (item === composer) {\n            break;\n        }\n\n        if (item.matches(editab
-leSelector)) {\n            break;\n        }\n\n        if (\n            item.matches(\n                \'button, [role="button"], input[type="submit"]\'\n            )\n        ) {\n   
-         return item;\n        }\n    }\n\n    for (const item of path) {\n        if (!isDiscoveryElement(item)) {\n            continue;\n        }\n\n        if (item === composer) {\n 
-           break;\n        }\n\n        if (item.matches(editableSelector)) {\n            break;\n        }\n\n        if (\n            typeof item.click === "function"\n        ) {\n   
-         return item;\n        }\n    }\n\n    return isDiscoveryElement(event.target) &&\n        event.target !== composer &&\n        !event.target.matches(editableSelector)\n        ? 
-event.target\n        : null;\n}\n\nfunction findDiscoveryRenderedTextElements(text) {\n    const wanted =\n        normalizeChatDiscoveryText(text);\n\n    if (!wanted) {\n        return 
-[];\n    }\n\n    const candidates = [];\n    const walker =\n        document.createTreeWalker(\n            document.body,\n            NodeFilter.SHOW_ELEMENT\n        );\n\n    let ele
-ment = null;\n\n    while (\n        (element = walker.nextNode())\n    ) {\n        if (\n            element === chatDiscovery.composer ||\n            element.closest?.(\n              
-  \'[data-agent-chatai-bridge-panel="1"]\'\n            )\n        ) {\n            continue;\n        }\n\n        const value =\n            normalizeChatDiscoveryText(\n                
-element.innerText ||\n                element.textContent ||\n                ""\n            );\n\n        if (value !== wanted) {\n            continue;\n        }\n\n        const rect 
-=\n            element.getBoundingClientRect();\n\n        const style =\n            window.getComputedStyle(element);\n\n        if (\n            style.display === "none" ||\n          
-  style.visibility === "hidden" ||\n            rect.width <= 0 ||\n            rect.height <= 0\n        ) {\n            continue;\n        }\n\n        candidates.push(element);\n    }\
-n\n    candidates.sort(\n        (a, b) => {\n            const aLength =\n                (\n                    a.innerText ||\n                    a.textContent ||\n                    
-""\n                ).length;\n\n            const bLength =\n                (\n                    b.innerText ||\n                    b.textContent ||\n                    ""\n         
-       ).length;\n\n            if (aLength !== bLength) {\n                return aLength - bLength;\n            }\n\n            return (\n                a.getElementsByTagName("*").le
-ngth -\n                b.getElementsByTagName("*").length\n            );\n        }\n    );\n\n    return candidates;\n}\n\nfunction findDiscoveryRenderedText(text) {\n    return (\n    
-    findDiscoveryRenderedTextElements(\n            text\n        )[0] || null\n    );\n}\n\nfunction discoverChatMessageContainer(element) {\n    let current = element;\n\n    for (\n    
-    let depth = 0;\n        current && depth < 4;\n        depth += 1\n    ) {\n        if (\n            current !== chatDiscovery.composer &&\n            current.parentElement &&\n     
-       normalizeChatDiscoveryText(\n                current.innerText ||\n                current.textContent ||\n                ""\n            ) ===\n                normalizeChatDiscov
-eryText(\n                    chatDiscovery.phrase\n                )\n        ) {\n            current =\n                current.parentElement;\n            continue;\n        }\n\n     
-   break;\n    }\n\n    return current || element;\n}\n\nfunction setChatDiscoveryPhase(\n    phase\n) {\n    const previous =\n        chatDiscovery.phase;\n\n    chatDiscovery.phase = ph
-ase;\n\n    document.documentElement.dataset\n        .agentChataiChatDiscovery =\n        phase;\n\n    discoveryTrace(\n        "phase",\n        {\n            from: previous,\n        
-    to: phase\n        }\n    );\n}\n\nfunction normalizeDiscoveryNumber(value) {\n    return String(value || "")\n        .replace(/[^0-9]/g, "");\n}\n\nfunction collectDiscoveryElements(
-) {\n    const found = [];\n\n    const visit = (scope) => {\n        if (!scope?.querySelectorAll) {\n            return;\n        }\n\n        for (const element of scope.querySelectorAl
-l("*")) {\n            found.push(element);\n\n            if (element.shadowRoot) {\n                visit(element.shadowRoot);\n            }\n        }\n    };\n\n    visit(document);\n
-\n    return [\n        ...new Set(found)\n    ];\n}\n\nfunction findDiscoveryResultElements(\n    expectedResult\n) {\n    const wanted =\n        normalizeDiscoveryNumber(\n            e
-xpectedResult\n        );\n\n    if (!wanted) {\n        return [];\n    }\n\n    const candidates = [];\n\n    for (const element of collectDiscoveryElements()) {\n        if (\n         
-   element === chatDiscovery.composer ||\n            element.closest?.(\n                \'[data-agent-chatai-bridge-panel="1"]\'\n            )\n        ) {\n            continue;\n     
-   }\n\n        const style =\n            window.getComputedStyle(element);\n\n        const rect =\n            element.getBoundingClientRect();\n\n        if (\n            style.displa
-y === "none" ||\n            style.visibility === "hidden" ||\n            rect.width <= 0 ||\n            rect.height <= 0\n        ) {\n            continue;\n        }\n\n        const 
-text =\n            element.innerText ||\n            element.textContent ||\n            "";\n\n        const numberCandidates =\n            String(text).match(\n                /\\d[\\d
-\\s,._-]{5,}\\d|\\d{6,}/g\n            ) || [];\n\n        if (\n            numberCandidates.some(\n                (value) =>\n                    normalizeDiscoveryNumber(\n            
-            value\n                    ) === wanted\n            )\n        ) {\n            candidates.push(element);\n        }\n    }\n\n    candidates.sort(\n        (a, b) => {\n     
-       const aLength =\n                (\n                    a.innerText ||\n                    a.textContent ||\n                    ""\n                ).length;\n\n            const 
-bLength =\n                (\n                    b.innerText ||\n                    b.textContent ||\n                    ""\n                ).length;\n\n            if (aLength !== bLe
-ngth) {\n                return aLength - bLength;\n            }\n\n            return (\n                a.getElementsByTagName("*").length -\n                b.getElementsByTagName("*")
-.length\n            );\n        }\n    );\n\n    return candidates;\n}\n\nfunction findDiscoveryResultElement(\n    expectedResult\n) {\n    return (\n        findDiscoveryResultElements(
-\n            expectedResult\n        )[0] || null\n    );\n}\n\nfunction capturePreSendResultElements() {\n    chatDiscovery.preSendResultElements =\n        findDiscoveryResultElements(\
-n            chatDiscovery.expectedResult\n        );\n\n    discoveryTrace(\n        "pre_send_result_elements",\n        {\n            count:\n                chatDiscovery.preSendResul
-tElements.length,\n            elements:\n                chatDiscovery.preSendResultElements\n                    .slice(0, 20)\n                    .map(\n                        describ
-eDiscoveryElement\n                    )\n        }\n    );\n}\n\nfunction runChatDiscoveryScan() {\n    if (\n        !chatDiscovery.active ||\n        chatDiscovery.phase !==\n          
-  "wait_message"\n    ) {\n        return false;\n    }\n\n    chatDiscovery.scanCount += 1;\n\n    const expected =\n        normalizeDiscoveryNumber(\n            chatDiscovery.expectedR
-esult\n        );\n\n    const before =\n        normalizeDiscoveryNumber(\n            chatDiscovery.preSendPageText\n        );\n\n    if (!expected) {\n        discoveryTrace(\n        
-    "scan",\n            {\n                reason:\n                    "missing_expected_result"\n            }\n        );\n        return false;\n    }\n\n    const candidates =\n     
-   findDiscoveryResultElements(\n            chatDiscovery.expectedResult\n        );\n\n    const element =\n        candidates.find(\n            (candidate) =>\n                !chatDis
-covery.preSendResultElements.includes(\n                    candidate\n                )\n        ) || null;\n\n    if (\n        !element &&\n        candidates.length > 0 &&\n        cha
-tDiscovery.preSendResultElements.length > 0\n    ) {\n        if (\n            chatDiscovery.scanCount === 1 ||\n            chatDiscovery.scanCount % 10 === 0\n        ) {\n            d
-iscoveryTrace(\n                "scan",\n                {\n                    reason:\n                        "only_preexisting_result_elements_found",\n                    scan:\n     
-                   chatDiscovery.scanCount,\n                    expectedResult:\n                        expected,\n                    baselineCount:\n                        chatDiscove
-ry.preSendResultElements.length,\n                    candidateCount:\n                        candidates.length\n                }\n            );\n        }\n        return false;\n    }
-\n\n    if (!element) {\n        if (\n            chatDiscovery.scanCount === 1 ||\n            chatDiscovery.scanCount % 10 === 0\n        ) {\n            discoveryTrace(\n             
-   "scan",\n                {\n                    reason:\n                        "expected_result_not_found",\n                    scan:\n                        chatDiscovery.scanCount
-,\n                    expectedResult:\n                        expected\n                }\n            );\n        }\n        return false;\n    }\n\n    discoveryTrace(\n        "result
-_found",\n        {\n            scan:\n                chatDiscovery.scanCount,\n            expectedResult:\n                expected,\n            element:\n                describeDisc
-overyElement(\n                    element\n                )\n        }\n    );\n\n    chatDiscovery.messageElement =\n        discoverChatMessageContainer(\n            element\n        
-);\n\n    chatDiscoveryProfile = {\n        ...chatDiscoveryProfile,\n        composerSelector:\n            getElementSelector(\n                chatDiscovery.composer\n            ),\n  
-      sendButtonSelector:\n            getElementSelector(\n                chatDiscovery.sendButton\n            ),\n        messageSelector:\n            getElementSelector(\n           
-     chatDiscovery.messageElement\n            ),\n        phrase:\n            chatDiscovery.phrase,\n        expectedResult:\n            chatDiscovery.expectedResult,\n        learnedAt
-:\n            new Date().toISOString()\n    };\n\n    saveChatDiscoveryProfile();\n\n    setChatDiscoveryPhase(\n        "complete"\n    );\n\n    chatDiscovery.active = false;\n\n    doc
-ument.documentElement.dataset\n        .agentChataiChatDiscoveryReady =\n        "1";\n\n    return true;\n}\n\nfunction startChatDiscovery(\n    phrase,\n    expectedResult\n) {\n    if (
-\n        typeof phrase !== "string" ||\n        !phrase.trim()\n    ) {\n        return {\n            ok: false,\n            error: "missing_discovery_phrase"\n        };\n    }\n\n    
-if (\n        typeof expectedResult !== "string" ||\n        !/^\\d+$/.test(\n            expectedResult.trim()\n        )\n    ) {\n        return {\n            ok: false,\n            e
-rror: "missing_expected_result"\n        };\n    }\n\n    chatDiscovery.trace = [];\n    chatDiscovery.traceStartedAt = null;\n    chatDiscovery.scanCount = 0;\n    chatDiscovery.pendingSe
-ndButton = null;\n    chatDiscovery.pendingSendStartedAt = null;\n    chatDiscovery.preSendPhraseElements = [];\n    chatDiscovery.preSendResultElements = [];\n\n    discoveryTrace(\n     
-   "start_requested",\n        {\n            phrase,\n            expectedResult\n        }\n    );\n\n    chatDiscovery.active = true;\n    scheduleDiscoveryPoll();\n\n    chatDiscovery.
-phrase =\n        normalizeChatDiscoveryText(\n            phrase\n        );\n    chatDiscovery.expectedResult =\n        expectedResult.trim();\n    chatDiscovery.preSendPageText = "";\n
-    chatDiscovery.composer = null;\n    chatDiscovery.sendButton = null;\n    chatDiscovery.messageElement = null;\n\n    document.documentElement.dataset\n        .agentChataiChatDiscover
-yReady =\n        "0";\n\n    setChatDiscoveryPhase(\n        "wait_input"\n    );\n\n    discoveryTrace(\n        "started",\n        {\n            phrase:\n                chatDiscovery
-.phrase,\n            expectedResult:\n                chatDiscovery.expectedResult\n        }\n    );\n\n    return getChatDiscoveryState();\n}\n\nfunction stopChatDiscovery() {\n    chat
-Discovery.active = false;\n\n    if (discoveryPollTimer !== null) {\n        window.clearInterval(\n            discoveryPollTimer\n        );\n        discoveryPollTimer = null;\n    }\n 
-   chatDiscovery.composer = null;\n    chatDiscovery.sendButton = null;\n    chatDiscovery.pendingSendButton = null;\n    chatDiscovery.pendingSendStartedAt = null;\n    chatDiscovery.mess
-ageElement = null;\n    chatDiscovery.preSendPhraseElements = [];\n    chatDiscovery.preSendResultElements = [];\n    chatDiscovery.phrase = "";\n    chatDiscovery.expectedResult = "";\n  
-  chatDiscovery.preSendPageText = "";\n\n    setChatDiscoveryPhase(\n        "idle"\n    );\n\n    return getChatDiscoveryState();\n}\n\nfunction getChatDiscoveryState() {\n    return {\n 
-       ok: true,\n        active: chatDiscovery.active,\n        phase: chatDiscovery.phase,\n        phrase: chatDiscovery.phrase,\n        expectedResult:\n            chatDiscovery.expe
-ctedResult,\n        learned:\n            Boolean(\n                chatDiscoveryProfile\n                    .composerSelector &&\n                chatDiscoveryProfile\n                 
-   .sendButtonSelector\n            ),\n        traceStartedAt:\n            chatDiscovery.traceStartedAt,\n        traceCount:\n            chatDiscovery.trace.length,\n        trace:\n  
-          chatDiscovery.trace.slice()\n    };\n}\n\nfunction capturePreSendResultElements() {\n    chatDiscovery.preSendResultElements =\n        findDiscoveryResultElements(\n            
-chatDiscovery.expectedResult\n        );\n\n    discoveryTrace(\n        "pre_send_result_elements",\n        {\n            count:\n                chatDiscovery.preSendResultElements.len
-gth,\n            elements:\n                chatDiscovery.preSendResultElements\n                    .slice(0, 20)\n                    .map(\n                        describeDiscoveryEle
-ment\n                    )\n        }\n    );\n}\n\nfunction handleChatDiscoveryInput(\n    event\n) {\n    discoveryTrace(\n        "input_event",\n        {\n            type:\n        
-        event?.type || "",\n            isTrusted:\n                event?.isTrusted === true,\n            target:\n                describeDiscoveryElement(\n                    event?.t
-arget\n                ),\n            path:\n                discoveryTraceEventPath(\n                    event\n                )\n        }\n    );\n\n    if (\n        !chatDiscovery.
-active ||\n        chatDiscovery.phase !==\n            "wait_input"\n    ) {\n        return;\n    }\n\n    const composer =\n        getDiscoveryEditableTarget(\n            event.target
-,\n            event\n        );\n\n    if (!composer) {\n        discoveryTrace(\n            "input_ignored",\n            {\n                reason:\n                    "no_composer_fr
-om_event"\n            }\n        );\n        return;\n    }\n\n    const actual =\n        normalizeChatDiscoveryText(\n            getEditableText(\n                composer\n           
- )\n        );\n\n    if (\n        actual !==\n        normalizeChatDiscoveryText(\n            chatDiscovery.phrase\n        )\n    ) {\n        discoveryTrace(\n            "input_ignor
-ed",\n            {\n                reason:\n                    "composer_text_mismatch",\n                actualLength:\n                    actual.length,\n                expectedLeng
-th:\n                    normalizeChatDiscoveryText(\n                        chatDiscovery.phrase\n                    ).length,\n                composer:\n                    describeDi
-scoveryElement(\n                        composer\n                    )\n            }\n        );\n        return;\n    }\n\n    chatDiscovery.composer =\n        composer;\n\n    discov
-eryTrace(\n        "composer_captured",\n        {\n            composer:\n                describeDiscoveryElement(\n                    composer\n                )\n        }\n    );\n\n
-    chatDiscoveryProfile = {\n        ...chatDiscoveryProfile,\n        composerSelector:\n            getElementSelector(\n                composer\n            )\n    };\n\n    saveChatD
-iscoveryProfile();\n\n    setChatDiscoveryPhase(\n        "wait_send"\n    );\n}\n\nfunction collectDiscoveryEditables() {\n    const selector =\n        \'[contenteditable="true"], textar
-ea, input[type="text"], [role="textbox"]\';\n\n    const found = [];\n\n    const visit = (scope) => {\n        if (!scope?.querySelectorAll) {\n            return;\n        }\n\n        f
-or (const element of scope.querySelectorAll(selector)) {\n            if (isVisibleEditable(element)) {\n                found.push(element);\n            }\n        }\n\n        for (cons
-t element of scope.querySelectorAll("*")) {\n            if (element.shadowRoot) {\n                visit(element.shadowRoot);\n            }\n        }\n    };\n\n    visit(document);\n\n
-    return [\n        ...new Set(found)\n    ];\n}\n\nfunction scanForDiscoveryInput() {\n    if (\n        !chatDiscovery.active ||\n        chatDiscovery.phase !==\n            "wait_inp
-ut"\n    ) {\n        return false;\n    }\n\n    const candidates =\n        collectDiscoveryEditables();\n\n    for (const composer of candidates) {\n        if (\n            normalizeC
-hatDiscoveryText(\n                getEditableText(composer)\n            ) ===\n            normalizeChatDiscoveryText(\n                chatDiscovery.phrase\n            )\n        ) {\n
-            chatDiscovery.composer =\n                composer;\n\n            chatDiscoveryProfile = {\n                ...chatDiscoveryProfile,\n                composerSelector:\n      
-              getElementSelector(\n                        composer\n                    )\n            };\n\n            saveChatDiscoveryProfile();\n            setChatDiscoveryPhase(\n 
-               "wait_send"\n            );\n            return true;\n        }\n    }\n\n    return false;\n}\n\nfunction captureDiscoverySendSnapshot() {\n    chatDiscovery.preSendPageTe
-xt =\n        normalizeChatDiscoveryText(\n            document.body?.innerText || ""\n        );\n\n    chatDiscovery.preSendPhraseElements =\n        findDiscoveryRenderedTextElements(\n
-            chatDiscovery.phrase\n        );\n\n    capturePreSendResultElements();\n\n    discoveryTrace(\n        "pre_send_snapshot",\n        {\n            pageTextLength:\n          
-      chatDiscovery.preSendPageText.length,\n            preSendPhraseElementCount:\n                chatDiscovery.preSendPhraseElements.length,\n            expectedAlreadyPresent:\n     
-           normalizeDiscoveryNumber(\n                    chatDiscovery.preSendPageText\n                ).indexOf(\n                    normalizeDiscoveryNumber(\n                        
-chatDiscovery.expectedResult\n                    )\n                ) >= 0\n        }\n    );\n}\n\nfunction finalizeDiscoverySendCandidate(\n    sendButton,\n    evidence\n) {\n    if (\
-n        !chatDiscovery.active ||\n        chatDiscovery.phase !== "wait_send" ||\n        !sendButton\n    ) {\n        return false;\n    }\n\n    chatDiscovery.sendButton =\n        sen
-dButton;\n\n    chatDiscovery.pendingSendButton = null;\n    chatDiscovery.pendingSendStartedAt = null;\n\n    discoveryTrace(\n        "send_control_captured",\n        "send_control_conf
-irmed",\n        {\n            evidence,\n            sendButton:\n                describeDiscoveryElement(\n                    sendButton\n                )\n        }\n    );\n\n    c
-hatDiscoveryProfile = {\n        ...chatDiscoveryProfile,\n        composerSelector:\n            getElementSelector(\n                chatDiscovery.composer\n            ),\n        sendB
-uttonSelector:\n            getElementSelector(\n                sendButton\n            )\n    };\n\n    saveChatDiscoveryProfile();\n\n    setChatDiscoveryPhase(\n        "wait_message"\
-n    );\n\n    window.setTimeout(\n        runChatDiscoveryScan,\n        50\n    );\n\n    return true;\n}\n\nfunction beginDiscoverySendCandidate(\n    actionTarget,\n    eventType\n) {\
-n    if (\n        !actionTarget ||\n        !chatDiscovery.composer\n    ) {\n        return false;\n    }\n\n    if (\n        chatDiscovery.pendingSendButton ===\n        actionTarget\n
-    ) {\n        discoveryTrace(\n            "send_candidate_repeat",\n            {\n                eventType,\n                sendButton:\n                    describeDiscoveryElement
-(\n                        actionTarget\n                    )\n            }\n        );\n        return false;\n    }\n\n    chatDiscovery.pendingSendButton =\n        actionTarget;\n\n 
-   chatDiscovery.pendingSendStartedAt =\n        Date.now();\n\n    captureDiscoverySendSnapshot();\n\n    discoveryTrace(\n        "send_candidate_pending",\n        {\n            eventT
-ype,\n            sendButton:\n                describeDiscoveryElement(\n                    actionTarget\n                )\n        }\n    );\n\n    return true;\n}\n\nfunction pollDisc
-overySendCandidate() {\n    if (\n        !chatDiscovery.active ||\n        chatDiscovery.phase !== "wait_send" ||\n        !chatDiscovery.pendingSendButton\n    ) {\n        return false;
-\n    }\n\n    const composerText =\n        normalizeChatDiscoveryText(\n            getEditableText(\n                chatDiscovery.composer\n            )\n        );\n\n    if (\n     
-   composerText !==\n        normalizeChatDiscoveryText(\n            chatDiscovery.phrase\n        )\n    ) {\n        return finalizeDiscoverySendCandidate(\n            chatDiscovery.pe
-ndingSendButton,\n            "composer_changed_after_user_action"\n        );\n    }\n\n    const freshPhraseElement =\n        findDiscoveryRenderedTextElements(\n            chatDiscove
-ry.phrase\n        ).find(\n            (candidate) =>\n                !chatDiscovery.preSendPhraseElements.includes(\n                    candidate\n                )\n        ) || null;
-\n\n    if (freshPhraseElement) {\n        discoveryTrace(\n            "discovery_message_rendered",\n            {\n                element:\n                    describeDiscoveryElement
-(\n                        freshPhraseElement\n                    )\n            }\n        );\n\n        return finalizeDiscoverySendCandidate(\n            chatDiscovery.pendingSendButt
-on,\n            "new_message_rendered"\n        );\n    }\n\n    if (\n        chatDiscovery.pendingSendStartedAt !== null &&\n        Date.now() -\n            chatDiscovery.pendingSendS
-tartedAt >\n            2500\n    ) {\n        discoveryTrace(\n            "send_candidate_rejected",\n            {\n                reason:\n                    "no_submission_evidence"
-,\n                sendButton:\n                    describeDiscoveryElement(\n                        chatDiscovery.pendingSendButton\n                    )\n            }\n        );\n\n
-        chatDiscovery.pendingSendButton =\n            null;\n        chatDiscovery.pendingSendStartedAt =\n            null;\n\n        return false;\n    }\n\n    return false;\n}\n\nfun
-ction handleChatDiscoveryClick(\n    event\n) {\n    discoveryTrace(\n        "user_action_event",\n        {\n            type:\n                event?.type || "",\n            isTrusted:
-\n                event?.isTrusted === true,\n            target:\n                describeDiscoveryElement(\n                    event?.target\n                ),\n            path:\n    
-            discoveryTraceEventPath(\n                    event\n                ),\n            composer:\n                describeDiscoveryElement(\n                    chatDiscovery.com
-poser\n                )\n        }\n    );\n\n    if (\n        !chatDiscovery.active ||\n        chatDiscovery.phase !==\n            "wait_send"\n    ) {\n        return;\n    }\n\n    
-const actionTarget =\n        getTrustedUserActionTarget(\n            event,\n            chatDiscovery.composer\n        );\n\n    if (!actionTarget) {\n        discoveryTrace(\n        
-    "user_action_ignored",\n            {\n                reason:\n                    "no_action_target"\n            }\n        );\n        return;\n    }\n\n    beginDiscoverySendCandi
-date(\n        actionTarget,\n        event?.type || ""\n    );\n}\n\nfunction extractActionContainers(text) {\n    if (typeof text !== "string" || !text.length) {\n        return [];\n   
- }\n\n    return [...new Set(\n        text.match(AGX_ACTION_PATTERN) || []\n    )];\n}\n\nfunction extractCommandContainers(text) {\n    if (typeof text !== "string" || !text.length) {\n 
-       return [];\n    }\n\n    return [...new Set(\n        text.match(AGX_COMMAND_PATTERN) || []\n    )];\n}\nfunction removeConfirmationBar() {\n    if (confirmationBar) {\n        conf
-irmationBar.remove();\n        confirmationBar = null;\n    }\n\n    confirmationToken = null;\n\n    document.documentElement.dataset\n        .agentChataiConfirmationPending = "0";\n}\n\
-nfunction showConfirmationBar(response) {\n    removeConfirmationBar();\n\n    confirmationToken = response.confirmationToken;\n\n    if (!confirmationToken) {\n        return;\n    }\n\n 
-   document.documentElement.dataset\n        .agentChataiConfirmationPending = "1";\n\n    const bar = document.createElement("div");\n\n    bar.style.position = "fixed";\n    bar.style.ri
-ght = "20px";\n    bar.style.bottom = "20px";\n    bar.style.zIndex = "2147483647";\n    bar.style.padding = "14px";\n    bar.style.background = "#ffffff";\n    bar.style.border = "1px sol
-id #888";\n    bar.style.borderRadius = "8px";\n    bar.style.boxShadow = "0 4px 18px rgba(0,0,0,.2)";\n    bar.style.fontFamily = "system-ui, sans-serif";\n    bar.style.maxWidth = "360px
-";\n\n    const title = document.createElement("div");\n    title.textContent = "Action requires your confirmation";\n    title.style.fontWeight = "600";\n    title.style.marginBottom = "8
-px";\n\n    const details = document.createElement("div");\n    details.textContent =\n        response.resultMessage ||\n        "A local action is waiting for confirmation.";\n    detail
-s.style.marginBottom = "12px";\n\n    const confirm = document.createElement("button");\n    confirm.textContent = "Confirm";\n    confirm.style.marginRight = "8px";\n\n    const cancel = 
-document.createElement("button");\n    cancel.textContent = "Cancel";\n\n    cancel.addEventListener("click", () => {\n        cancel.disabled = true;\n\n        chrome.runtime.sendMessage
-(\n            {\n                type: "AGX_CANCEL_ACTION",\n                confirmationToken\n            },\n            (result) => {\n                if (chrome.runtime.lastError) {\
-n                    document.documentElement.dataset\n                        .agentChataiGatewayError =\n                        chrome.runtime.lastError.message;\n                    ca
-ncel.disabled = false;\n                    return;\n                }\n\n                if (!result || !result.ok) {\n                    document.documentElement.dataset\n              
-          .agentChataiGatewayError =\n                        result?.message ||\n                        result?.error ||\n                        "cancel_rejected";\n                    
-cancel.disabled = false;\n                    return;\n                }\n\n                document.documentElement.dataset\n                    .agentChataiConfirmationPending =\n       
-             "0";\n\n                document.documentElement.dataset\n                    .agentChataiConfirmationCancelled =\n                    "1";\n\n                removeConfirmati
-onBar();\n            }\n        );\n    });\n\n    confirm.addEventListener("click", () => {\n        confirm.disabled = true;\n        cancel.disabled = true;\n        confirm.textConten
-t = "Confirming...";\n\n        chrome.runtime.sendMessage(\n            {\n                type: "AGX_CONFIRM_ACTION",\n                confirmationToken\n            },\n            (res
-ult) => {\n                if (chrome.runtime.lastError) {\n                    document.documentElement.dataset\n                        .agentChataiGatewayError =\n                      
-  chrome.runtime.lastError.message;\n                    confirm.disabled = false;\n                    cancel.disabled = false;\n                    confirm.textContent = "Confirm";\n    
-                return;\n                }\n\n                if (!result || !result.ok) {\n                    document.documentElement.dataset\n                        .agentChataiGatewa
-yError =\n                        result?.message ||\n                        result?.error ||\n                        "confirmation_rejected";\n\n                    confirm.disabled = f
-alse;\n                    cancel.disabled = false;\n                    confirm.textContent = "Confirm";\n                    return;\n                }\n\n                document.docume
-ntElement.dataset\n                    .agentChataiBackgroundAck = "1";\n\n                document.documentElement.dataset\n                    .agentChataiGatewayAck = "1";\n\n          
-      document.documentElement.dataset\n                    .agentChataiSignatureVerified =\n                        result.signatureVerified === true\n                            ? "1"\n 
-                           : "0";\n\n                document.documentElement.dataset\n                    .agentChataiGatewayResult =\n                        result.signatureVerified ===
- true\n                            ? "received"\n                            : "rejected";\n\n                document.documentElement.dataset\n                    .agentChataiResultStatus
- =\n                        result.resultStatus || "";\n\n                document.documentElement.dataset\n                    .agentChataiResultStatus =\n                    result.resul
-tStatus || "";\n\n                if (result.signatureVerified === true && result.resultContainer) {\n                    publishResultToChat(result.resultContainer);\n                }\n\
-n                document.documentElement.dataset\n                    .agentChataiConfirmationPending = "0";\n\n                removeConfirmationBar();\n            }\n        );\n    })
-;\n\n    bar.appendChild(title);\n    bar.appendChild(details);\n    bar.appendChild(confirm);\n    bar.appendChild(cancel);\n\n    document.body.appendChild(bar);\n\n    confirmationBar =
- bar;\n}\n\nfunction reportContainers(containers) {\n    for (const container of containers) {\n        if (container === lastContainer) {\n            continue;\n        }\n\n        last
-Container = container;\n\n        document.documentElement.dataset\n            .agentChataiAgxFound = "1";\n\n        chrome.runtime.sendMessage(\n            {\n                type: "AG
-X_ACTION_DETECTED",\n                containers: [container]\n            },\n            (response) => {\n                if (chrome.runtime.lastError) {\n                    document.doc
-umentElement.dataset\n                        .agentChataiGatewayError =\n                        chrome.runtime.lastError.message;\n                    return;\n                }\n\n     
-           if (!response || !response.ok) {\n                    document.documentElement.dataset\n                        .agentChataiGatewayError =\n                        response?.mes
-sage ||\n                        response?.error ||\n                        "unknown_error";\n                    return;\n                }\n\n                document.documentElement.da
-taset\n                    .agentChataiBackgroundAck = "1";\n\n                document.documentElement.dataset\n                    .agentChataiGatewayAck = "1";\n\n                docume
-nt.documentElement.dataset\n                    .agentChataiSignatureVerified =\n                        response.signatureVerified === true\n                            ? "1"\n           
-                 : "0";\n\n                document.documentElement.dataset\n                    .agentChataiGatewayResult =\n                        response.signatureVerified === true\n 
-                           ? "received"\n                            : "rejected";\n\n                document.documentElement.dataset\n                    .agentChataiResultStatus =\n    
-                response.resultStatus || "";\n\n                if (response.signatureVerified === true && response.resultContainer && !response.confirmationRequired) {\n                  
-  publishResultToChat(response.resultContainer);\n                }\n\n                if (\n                    response.confirmationRequired &&\n                    response.confirmation
-Token\n                ) {\n                    showConfirmationBar(response);\n                }\n            }\n        );\n    }\n}\n\nfunction isVisibleEditable(element) {\n    if (!el
-ement || !document.documentElement.contains(element)) {\n        return false;\n    }\n\n    const style = window.getComputedStyle(element);\n    const rect = element.getBoundingClientRect
-();\n\n    return (\n        style.display !== "none" &&\n        style.visibility !== "hidden" &&\n        rect.width > 0 &&\n        rect.height > 0 &&\n        !element.disabled &&\n   
-     element.getAttribute("aria-hidden") !== "true"\n    );\n}\n\nfunction editableScore(element) {\n    let score = 0;\n    const text = [\n        element.getAttribute("aria-label") || "
-",\n        element.getAttribute("placeholder") || "",\n        element.getAttribute("name") || "",\n        element.getAttribute("data-testid") || "",\n        element.getAttribute("role"
-) || ""\n    ].join(" ").toLowerCase();\n\n    if (element === document.activeElement) score += 100;\n    if (element.matches(\'[contenteditable="true"]\')) score += 40;\n    if (element.m
-atches("textarea")) score += 35;\n    if (element.matches(\'input[type="text"]\')) score += 20;\n    if (element.matches(\'[role="textbox"]\')) score += 20;\n\n    if (/message|chat|prompt
-|reply|compose|ask|╨\xa0╨Ж╨\xa0╨Ж╨\xa0┬╡╨\xa0╥С|╨б╨Г╨\xa0╤Х╨\xa0╤Х╨\xa0┬▒╨бтА░|╨\xa0┬╖╨\xa0┬░╨\xa0╤Ч╨б╨В╨\xa0╤Х╨б╨Г/.test(text)) {\n        score += 35;\n    }\n\n    const rect = element.
-getBoundingClientRect();\n    if (rect.bottom > window.innerHeight * 0.45) {\n        score += 15;\n    }\n\n    return score;\n}\n\nfunction findChatComposer() {\n    const learned =\n   
-     findChatDiscoveryElement(\n            chatDiscoveryProfile\n                .composerSelector\n        );\n\n    if (learned) {\n        return learned;\n    }\n\n    const candidate
-s = [\n        ...document.querySelectorAll(\n            \'[contenteditable="true"], textarea, input[type="text"], [role="textbox"]\'\n        )\n    ].filter(isVisibleEditable);\n\n    c
-andidates.sort(\n        (a, b) => editableScore(b) - editableScore(a)\n    );\n\n    return candidates[0] || null;\n}\n\nfunction setComposerText(element, text) {\n    element.focus();\n\
-n    if (\n        element instanceof HTMLTextAreaElement ||\n        element instanceof HTMLInputElement\n    ) {\n        const setter = Object.getOwnPropertyDescriptor(\n            Obj
-ect.getPrototypeOf(element),\n            "value"\n        )?.set;\n\n        if (setter) {\n            setter.call(element, text);\n        } else {\n            element.value = text;\n 
-       }\n\n        element.dispatchEvent(\n            new Event("input", { bubbles: true })\n        );\n        element.dispatchEvent(\n            new Event("change", { bubbles: true }
-)\n        );\n        return;\n    }\n\n    const selection = window.getSelection();\n    const range = document.createRange();\n\n    range.selectNodeContents(element);\n    selection.re
-moveAllRanges();\n    selection.addRange(range);\n\n    let inserted = false;\n\n    try {\n        inserted = document.execCommand(\n            "insertText",\n            false,\n       
-     text\n        );\n    } catch (_) {\n        inserted = false;\n    }\n\n    if (!inserted) {\n        element.replaceChildren(\n            document.createTextNode(text)\n        );\
-n    }\n\n    try {\n        element.dispatchEvent(\n            new InputEvent("input", {\n                bubbles: true,\n                inputType: "insertText",\n                data: 
-text\n            })\n        );\n    } catch (_) {\n        element.dispatchEvent(\n            new Event("input", { bubbles: true })\n        );\n    }\n}\n\nfunction findChatSubmitButto
-n(composer) {\n    const learned =\n        findChatDiscoveryElement(\n            chatDiscoveryProfile\n                .sendButtonSelector\n        );\n\n    if (learned) {\n        retu
-rn learned;\n    }\n\n    const directSelectors = [\n        \'button[data-testid="send-button"]\',\n        \'button[aria-label*="Send"]\',\n        \'button[aria-label*="send"]\',\n     
-   \'button[aria-label*="╬ЄяЁрт"]\',\n        \'button[title*="Send"]\',\n        \'button[title*="send"]\'\n    ];\n\n    for (const selector of directSelectors) {\n        const direct =
- document.querySelector(selector);\n\n        if (direct && isVisibleEditable(direct)) {\n            return direct;\n        }\n    }\n\n    const form = composer.closest("form");\n\n    
-if (form) {\n        const submit = form.querySelector(\n            \'button[type="submit"], input[type="submit"]\'\n        );\n\n        if (submit && isVisibleEditable(submit)) {\n    
-        return submit;\n        }\n    }\n\n    const container =\n        composer.closest("form") ||\n        composer.parentElement?.parentElement ||\n        document.body;\n\n    cons
-t buttons = [\n        ...container.querySelectorAll(\n            \'button, [role="button"], input[type="submit"]\'\n        )\n    ].filter(\n        (button) =>\n            button !== 
-composer &&\n            !button.disabled &&\n            isVisibleEditable(button)\n    );\n\n    const scored = buttons.map((button) => {\n        const label = [\n            button.get
-Attribute("aria-label") || "",\n            button.getAttribute("title") || "",\n            button.getAttribute("data-testid") || "",\n            button.getAttribute("name") || "",\n    
-        button.textContent || ""\n        ].join(" ").toLowerCase();\n\n        let score = 0;\n        if (/send|submit|ask|message|╨\xa0╤Х╨бтАЪ╨\xa0╤Ч╨б╨В╨\xa0┬░╨\xa0╨Ж|╨\xa0╤Ч╨\xa0╤Х╨б╨
-Г╨\xa0┬╗╨\xa0┬░╨бтАЪ╨б╨К|╨\xa0╤Х╨бтАЪ╨\xa0╨Ж╨\xa0┬╡╨бтАЪ╨\xa0╤С╨бтАЪ╨б╨К/.test(label)) {\n            score += 100;\n        }\n\n        const r = button.getBoundingClientRect();\n       
- const c = composer.getBoundingClientRect();\n\n        if (r.bottom >= c.top - 100 && r.top <= c.bottom + 100) {\n            score += 25;\n        }\n\n        return { button, score };\
-n    });\n\n    scored.sort((a, b) => b.score - a.score);\n\n    return scored[0]?.score >= 100\n        ? scored[0].button\n        : null;\n}\n\nfunction submitChatComposer(composer) {\n
-    const button = findChatSubmitButton(composer);\n\n    if (button) {\n        button.click();\n        return true;\n    }\n\n    const form = composer.closest("form");\n\n    if (form 
-&& typeof form.requestSubmit === "function") {\n        form.requestSubmit();\n        return true;\n    }\n\n    for (const type of ["keydown", "keyup"]) {\n        composer.dispatchEvent
-(\n            new KeyboardEvent(type, {\n                key: "Enter",\n                code: "Enter",\n                keyCode: 13,\n                which: 13,\n                bubbles: 
-true,\n                cancelable: true\n            })\n        );\n    }\n\n    return true;\n}\n\nfunction getComposerText(element) {\n    if (\n        element instanceof HTMLTextAreaE
-lement ||\n        element instanceof HTMLInputElement\n    ) {\n        return element.value || "";\n    }\n\n    return element.innerText || element.textContent || "";\n}\n\nfunction mar
-kBridgeGeneratedComposer(composer, text) {\n    bridgeGeneratedComposer = {\n        composer,\n        text,\n        expiresAt: Date.now() + 10000\n    };\n\n    composer.dataset.agentCh
-ataiBridgeGenerated = "1";\n    document.documentElement.dataset.agentChataiBridgeGenerated = "1";\n}\n\nfunction clearBridgeGeneratedComposer(composer = null) {\n    if (\n        compose
-r &&\n        composer.dataset\n    ) {\n        delete composer.dataset.agentChataiBridgeGenerated;\n    }\n\n    if (\n        !composer ||\n        bridgeGeneratedComposer?.composer ===
- composer\n    ) {\n        bridgeGeneratedComposer = null;\n        delete document.documentElement.dataset.agentChataiBridgeGenerated;\n    }\n}\n\nfunction bridgeOwnsComposerText(compos
-er, expectedText) {\n    const marker = bridgeGeneratedComposer;\n\n    if (\n        !marker ||\n        marker.composer !== composer ||\n        Date.now() > marker.expiresAt\n    ) {\n 
-       return false;\n    }\n\n    return getComposerText(composer) === expectedText;\n}\n\nfunction submitPublishedResultWhenReady(\n    composer,\n    expectedText,\n    attempt = 0\n) {
-\n    if (\n        !bridgeOwnsComposerText(composer, expectedText)\n    ) {\n        document.documentElement.dataset.agentChataiChatOutput =\n            "send_guard_failed";\n        re
-turn false;\n    }\n\n    const currentComposer = findChatComposer();\n\n    if (!currentComposer) {\n        if (attempt < BRIDGE_SEND_MAX_ATTEMPTS) {\n            window.setTimeout(\n   
-             () => submitPublishedResultWhenReady(\n                    composer,\n                    expectedText,\n                    attempt + 1\n                ),\n                B
-RIDGE_SEND_RETRY_MS\n            );\n            return false;\n        }\n\n        document.documentElement.dataset.agentChataiChatOutput =\n            "submit_failed";\n        clearBr
-idgeGeneratedComposer(composer);\n        return false;\n    }\n\n    if (currentComposer !== composer) {\n        if (\n            getComposerText(currentComposer) === expectedText\n    
-    ) {\n            composer = currentComposer;\n            markBridgeGeneratedComposer(\n                composer,\n                expectedText\n            );\n        } else {\n     
-       document.documentElement.dataset.agentChataiChatOutput =\n                "composer_changed";\n            clearBridgeGeneratedComposer();\n            return false;\n        }\n   
- }\n\n    if (submitChatComposer(composer)) {\n        document.documentElement.dataset.agentChataiChatOutput =\n            "submitted";\n\n        window.setTimeout(\n            () => c
-learBridgeGeneratedComposer(composer),\n            500\n        );\n\n        return true;\n    }\n\n    if (attempt < BRIDGE_SEND_MAX_ATTEMPTS) {\n        window.setTimeout(\n           
- () => submitPublishedResultWhenReady(\n                composer,\n                expectedText,\n                attempt + 1\n            ),\n            BRIDGE_SEND_RETRY_MS\n        );\
-n        return false;\n    }\n\n    document.documentElement.dataset.agentChataiChatOutput =\n        "submit_failed";\n    clearBridgeGeneratedComposer(composer);\n    return false;\n}\n
-\nfunction publishResultToChat(resultContainer) {\n    if (\n        typeof resultContainer !== "string" ||\n        !resultContainer.startsWith("AGX1:R:") ||\n        resultContainer === 
-lastPublishedResult\n    ) {\n        return false;\n    }\n\n    const composer = findChatComposer();\n\n    if (!composer) {\n        document.documentElement.dataset.agentChataiChatOutp
-ut =\n            "composer_not_found";\n        return false;\n    }\n\n    lastPublishedResult = resultContainer;\n\n    try {\n        setComposerText(\n            composer,\n         
-   resultContainer\n        );\n\n        markBridgeGeneratedComposer(\n            composer,\n            resultContainer\n        );\n\n        document.documentElement.dataset.agentChat
-aiChatOutput =\n            "inserted";\n\n        window.setTimeout(\n            () => submitPublishedResultWhenReady(\n                composer,\n                resultContainer\n      
-      ),\n            BRIDGE_SEND_RETRY_MS\n        );\n\n        return true;\n    } catch (error) {\n        clearBridgeGeneratedComposer(composer);\n        document.documentElement.dat
-aset.agentChataiChatOutput =\n            "error";\n\n        console.error(\n            "[Agent ChatAI Browser Bridge]",\n            "chat result injection failed",\n            error\n
-        );\n\n        return false;\n    }\n}\n\nconst COMMAND_STATUS_META = {\n    running: {\n        label: "┬√яюыэ хЄё ",\n        color: "#2563eb"\n    },\n    done: {\n        label:
- "┬√яюыэхэю",\n        color: "#15803d"\n    },\n    confirm: {\n        label: "╬цшфрхЄ яюфЄтхЁцфхэш ",\n        color: "#b45309"\n    },\n    error: {\n        label: "╬°шсър",\n        
-color: "#dc2626"\n    }\n};\n\nconst COMMAND_PANEL_HISTORY_KEY =\n    "agentChataiCommandPanelHistory";\n\nconst COMMAND_PANEL_SIZE_KEY =\n    "agentChataiCommandPanelSize";\n\nlet command
-BridgeEnabled = false;\nlet commandPanel = null;\nlet commandPanelCurrentDot = null;\nlet commandPanelCurrentText = null;\nlet commandPanelHistoryBox = null;\n\nfunction getCommandAction(c
-ontainer) {\n    try {\n        const encoded = container.split(":")[2];\n        const normalized =\n            encoded.replace(/-/g, "+").replace(/_/g, "/");\n        const padded =\n  
-          normalized +\n            "=".repeat(\n                (4 - (normalized.length % 4)) % 4\n            );\n\n        const binary = atob(padded);\n        const bytes = Uint8Array
-.from(\n            binary,\n            (char) => char.charCodeAt(0)\n        );\n\n        const payload =\n            JSON.parse(\n                new TextDecoder().decode(bytes)\n    
-        );\n\n        return typeof payload.action === "string" &&\n            payload.action.length > 0\n            ? payload.action\n            : "command";\n    } catch (_) {\n      
-  return "command";\n    }\n}\nfunction commandStatusMeta(state) {\n    return (\n        COMMAND_STATUS_META[state] ||\n        COMMAND_STATUS_META.error\n    );\n}\n\nfunction loadComman
-dHistory() {\n    try {\n        const raw = localStorage.getItem(\n            COMMAND_PANEL_HISTORY_KEY\n        );\n\n        if (!raw) {\n            return [];\n        }\n\n        c
-onst value = JSON.parse(raw);\n\n        return Array.isArray(value)\n            ? value.slice(0, 20)\n            : [];\n    } catch (_) {\n        return [];\n    }\n}\n\nfunction saveC
-ommandHistory(history) {\n    try {\n        localStorage.setItem(\n            COMMAND_PANEL_HISTORY_KEY,\n            JSON.stringify(history.slice(0, 20))\n        );\n    } catch (_) {}
-\n}\n\nfunction loadCommandPanelSize() {\n    const fallback = {\n        width: 380,\n        height: 240\n    };\n\n    try {\n        const raw = localStorage.getItem(\n            COMM
-AND_PANEL_SIZE_KEY\n        );\n\n        if (!raw) {\n            return fallback;\n        }\n\n        const value = JSON.parse(raw);\n\n        const width = Number(value.width);\n    
-    const height = Number(value.height);\n\n        return {\n            width:\n                Number.isFinite(width) &&\n                width >= 44\n                    ? width\n     
-               : fallback.width,\n\n            height:\n                Number.isFinite(height) &&\n                height >= 44\n                    ? height\n                    : fallb
-ack.height\n        };\n    } catch (_) {\n        return fallback;\n    }\n}\n\nfunction saveCommandPanelSize() {\n    if (!commandPanel) {\n        return;\n    }\n\n    try {\n        l
-ocalStorage.setItem(\n            COMMAND_PANEL_SIZE_KEY,\n            JSON.stringify({\n                width: commandPanel.offsetWidth,\n                height: commandPanel.offsetHeight
-\n            })\n        );\n    } catch (_) {}\n}\n\nconst COMMAND_PANEL_POSITION_KEY =\n    "agentChataiCommandPanelPosition";\n\nconst COMMAND_PANEL_THEME_KEY =\n    "agentChataiComman
-dPanelTheme";\n\nfunction loadCommandPanelPosition() {\n    const fallback = {\n        left: 16,\n        top: null\n    };\n\n    try {\n        const raw = localStorage.getItem(\n      
-      COMMAND_PANEL_POSITION_KEY\n        );\n\n        if (!raw) {\n            return fallback;\n        }\n\n        const value = JSON.parse(raw);\n\n        return {\n            left
-: Number.isFinite(Number(value.left))\n                ? Number(value.left)\n                : fallback.left,\n\n            top:\n                value.top === null ||\n                va
-lue.top === undefined\n                    ? null\n                    : Number.isFinite(Number(value.top))\n                        ? Number(value.top)\n                        : fallback
-.top\n        };\n    } catch (_) {\n        return fallback;\n    }\n}\n\nfunction saveCommandPanelPosition(panel) {\n    if (!panel) {\n        return;\n    }\n\n    try {\n        local
-Storage.setItem(\n            COMMAND_PANEL_POSITION_KEY,\n            JSON.stringify({\n                left: panel.offsetLeft,\n                top: panel.offsetTop\n            })\n    
-    );\n    } catch (_) {}\n}\n\nfunction loadCommandPanelTheme() {\n    try {\n        const stored =\n            localStorage.getItem(\n                COMMAND_PANEL_THEME_KEY\n        
-    );\n\n        if (stored === "dark" || stored === "light") {\n            return stored;\n        }\n    } catch (_) {}\n\n    return window.matchMedia &&\n        window.matchMedia(\n
-            "(prefers-color-scheme: dark)"\n        ).matches\n        ? "dark"\n        : "light";\n}\n\nfunction saveCommandPanelTheme(theme) {\n    try {\n        localStorage.setItem(\
-n            COMMAND_PANEL_THEME_KEY,\n            theme\n        );\n    } catch (_) {}\n}\nfunction closeCommandPanel() {\n    commandBridgeEnabled = false;\n    clearBridgeGeneratedComp
-oser();\n    if (typeof removeConfirmationBar === "function") {\n        removeConfirmationBar();\n    }\n    if (commandPanel) {\n        commandPanel.remove();\n    }\n    commandPanel =
- null;\n    commandPanelCurrentDot = null;\n    commandPanelCurrentText = null;\n    commandPanelHistoryBox = null;\n    document.documentElement.dataset.agentChataiBridgeEnabled = "0";\n}
-\n\nfunction openCommandPanel() {\n    commandBridgeEnabled = true;\n    document.documentElement.dataset.agentChataiBridgeEnabled = "1";\n    ensureCommandPanel();\n    inspectDocument();
-\n}\n\nfunction toggleCommandPanel() {\n    if (commandBridgeEnabled) {\n        closeCommandPanel();\n    } else {\n        openCommandPanel();\n    }\n}\n\nfunction ensureCommandPanel() 
-{\n    if (\n        commandPanel &&\n        document.documentElement.contains(\n            commandPanel\n        )\n    ) {\n        return commandPanel;\n    }\n\n    if (!document.bod
-y) {\n        return null;\n    }\n\n    commandPanel =\n        document.getElementById(\n            "agentChataiCommandPanel"\n        );\n\n    if (commandPanel) {\n        return comm
-andPanel;\n    }\n\n    const size =\n        loadCommandPanelSize();\n\n    const position =\n        loadCommandPanelPosition();\n\n    const panel =\n        document.createElement("div
-");\n\n    panel.id =\n        "agentChataiCommandPanel";\n\n    Object.assign(\n        panel.style,\n        {\n            position: "fixed",\n            left: `${Math.max(\n          
-      8,\n                position.left\n            )}px`,\n            top:\n                position.top === null\n                    ? "auto"\n                    : `${Math.max(\n    
-                    8,\n                        position.top\n                    )}px`,\n            bottom:\n                position.top === null\n                    ? "16px"\n        
-            : "auto",\n            zIndex: "2147483647",\n            width: `${size.width}px`,\n            height: `${size.height}px`,\n            minWidth: "44px",\n            minHeig
-ht: "44px",\n            maxWidth:\n                "calc(100vw - 16px)",\n            maxHeight:\n                "calc(100vh - 16px)",\n            overflow: "hidden",\n            boxSi
-zing: "border-box",\n            padding: "10px",\n            borderRadius: "12px",\n            fontFamily:\n                "system-ui, sans-serif",\n            fontSize: "13px",\n    
-        lineHeight: "1.35",\n            userSelect: "none",\n            resize: "none",\n            cursor: "default"\n        }\n    );\n\n    const applyTheme =\n        (theme) => {\
-n            const dark =\n                theme === "dark";\n\n            panel.style.setProperty(\n                "--agx-panel-bg",\n                dark\n                    ? "#1f293
-7"\n                    : "#ffffff"\n            );\n\n            panel.style.setProperty(\n                "--agx-panel-fg",\n                dark\n                    ? "#f9fafb"\n     
-               : "#222222"\n            );\n\n            panel.style.setProperty(\n                "--agx-panel-border",\n                dark\n                    ? "#4b5563"\n          
-          : "#9ca3af"\n            );\n\n            panel.style.setProperty(\n                "--agx-panel-divider",\n                dark\n                    ? "#374151"\n              
-      : "#e5e7eb"\n            );\n\n            panel.style.background =\n                "var(--agx-panel-bg)";\n\n            panel.style.color =\n                "var(--agx-panel-fg)";
-\n\n            panel.style.border =\n                "1px solid var(--agx-panel-border)";\n\n            panel.style.boxShadow =\n                dark\n                    ? "0 6px 24px r
-gba(0,0,0,.45)"\n                    : "0 6px 24px rgba(0,0,0,.20)";\n\n            if (\n                typeof themeButton !==\n                "undefined" &&\n                themeButto
-n\n            ) {\n                themeButton.setAttribute(\n                    "aria-checked",\n                    dark\n                        ? "true"\n                        : "f
-alse"\n                );\n\n                themeButton.style.background =\n                    dark\n                        ? "#374151"\n                        : "#e5e7eb";\n\n        
-        themeKnob.style.transform =\n                    dark\n                        ? "translateX(20px)"\n                        : "translateX(0)";\n\n                themeKnob.textCon
-tent =\n                    dark ? "\u263e" : "\u2600";\n            }\n        };\n\n    const header =\n        document.createElement("div");\n\n    header.className =\n        "agentCh
-ataiCommandPanelHeader";\n\n    Object.assign(\n        header.style,\n        {\n            display: "flex",\n            alignItems: "center",\n            justifyContent: "space-betwee
-n",\n            gap: "8px",\n            fontWeight: "600",\n            marginBottom: "8px",\n            userSelect: "none",\n            cursor: "move"\n        }\n    );\n\n    const 
-title =\n        document.createElement("div");\n\n    title.textContent =\n        "Agent ChatAI";\n\n    title.className =\n        "agentChataiCommandPanelTitle";\n\n    const themeButt
-on =\n        document.createElement("button");\n\n    themeButton.type = "button";\n    themeButton.setAttribute(\n        "role",\n        "switch"\n    );\n    themeButton.setAttribute(
-\n        "aria-label",\n        "╧хЁхъы■ўшЄ№ Єхьє Agent ChatAI"\n    );\n\n    Object.assign(\n        themeButton.style,\n        {\n            position: "relative",\n            width:
- "44px",\n            height: "24px",\n            padding: "0",\n            margin: "0",\n            border: "0",\n            borderRadius: "999px",\n            cursor: "pointer",\n  
-          flex: "0 0 auto"\n        }\n    );\n\n    const themeKnob =\n        document.createElement("span");\n\n    Object.assign(\n        themeKnob.style,\n        {\n            posi
-tion: "absolute",\n            left: "3px",\n            top: "3px",\n            width: "18px",\n            height: "18px",\n            borderRadius: "50%",\n            background: "#f
-fffff",\n            color: "#111827",\n            display: "flex",\n            alignItems: "center",\n            justifyContent: "center",\n            fontSize: "12px",\n            l
-ineHeight: "1",\n            boxShadow:\n                "0 1px 3px rgba(0,0,0,.25)",\n            transition:\n                "transform .15s ease"\n        }\n    );\n\n    themeButton.
-appendChild(\n        themeKnob\n    );\n\n    const current =\n        document.createElement("div");\n\n    current.className =\n        "agentChataiCommandPanelCurrent";\n\n    Object.a
-ssign(\n        current.style,\n        {\n            display: "flex",\n            alignItems: "center",\n            gap: "8px",\n            padding: "6px 4px 8px",\n            fontWe
-ight: "600",\n            borderBottom:\n                "1px solid var(--agx-panel-divider)",\n            marginBottom: "6px",\n            overflow: "hidden",\n            cursor: "move
-"\n        }\n    );\n\n    const dot =\n        document.createElement("span");\n\n    dot.textContent = "\u25cf";\n    dot.style.flex =\n        "0 0 auto";\n\n    const currentText =\n 
-       document.createElement("span");\n\n    currentText.style.overflow =\n        "hidden";\n\n    currentText.style.textOverflow =\n        "ellipsis";\n\n    currentText.style.whiteSpa
-ce =\n        "nowrap";\n\n    current.appendChild(dot);\n    current.appendChild(\n        currentText\n    );\n\n    const historyTitle =\n        document.createElement("div");\n\n    h
-istoryTitle.textContent =\n        "╚ёЄюЁш ";\n\n    historyTitle.className =\n        "agentChataiCommandPanelHistoryTitle";\n\n    Object.assign(\n        historyTitle.style,\n        {\
-n            fontSize: "11px",\n            fontWeight: "600",\n            opacity: "0.7",\n            marginBottom: "4px"\n        }\n    );\n\n    const history =\n        document.cre
-ateElement("div");\n\n    history.className =\n        "agentChataiCommandPanelHistory";\n\n    Object.assign(\n        history.style,\n        {\n            overflowY: "auto",\n         
-   height:\n                "calc(100% - 76px)",\n            paddingRight: "3px"\n        }\n    );\n\n    header.appendChild(title);\n    const closeButton = document.createElement("butt
-on");\n\ncloseButton.type = "button";\ncloseButton.textContent = "\xd7";\ncloseButton.setAttribute("aria-label", "╟ръЁ√Є№ Agent ChatAI");\nObject.assign(closeButton.style, { width: "24px",
- height: "24px", padding: "0", margin: "0 0 0 4px", border: "0", borderRadius: "6px", background: "transparent", color: "inherit", cursor: "pointer", fontSize: "20px", lineHeight: "20px", 
-flex: "0 0 auto" });\ncloseButton.className = "agentChataiCommandPanelClose";\ncloseButton.addEventListener("click", (event) => { event.preventDefault(); event.stopPropagation(); closeComm
-andPanel(); });\n\nheader.appendChild(themeButton);\n    header.appendChild(closeButton);\n\n    panel.appendChild(header);\n    panel.appendChild(current);\n    panel.appendChild(historyT
-itle);\n    panel.appendChild(history);\n\n    document.body.appendChild(panel);\n\n    commandPanel = panel;\n    commandPanelCurrentDot = dot;\n    commandPanelCurrentText = currentText;
-\n    commandPanelHistoryBox = history;\n\n    let currentTheme =\n        loadCommandPanelTheme();\n\n    const setTheme =\n        (theme) => {\n            currentTheme =\n             
-   theme === "dark"\n                    ? "dark"\n                    : "light";\n\n            applyTheme(\n                currentTheme\n            );\n\n            saveCommandPanelTh
-eme(\n                currentTheme\n            );\n        };\n\n    themeButton.addEventListener(\n        "click",\n        (event) => {\n            event.preventDefault();\n          
-  event.stopPropagation();\n\n            setTheme(\n                currentTheme === "dark"\n                    ? "light"\n                    : "dark"\n            );\n        }\n    );
-\n\n    applyTheme(\n        currentTheme\n    );\n\n    const clampPanel =\n        (\n            left,\n            top,\n            width,\n            height\n        ) => {\n       
-     const minWidth = 44;\n            const minHeight = 44;\n\n            width =\n                Math.max(\n                    minWidth,\n                    Math.min(\n              
-          width,\n                        window.innerWidth - 8\n                    )\n                );\n\n            height =\n                Math.max(\n                    minHeight
-,\n                    Math.min(\n                        height,\n                        window.innerHeight - 8\n                    )\n                );\n\n            left =\n        
-        Math.max(\n                    4,\n                    Math.min(\n                        left,\n                        window.innerWidth -\n                        width -\n     
-                   4\n                    )\n                );\n\n            top =\n                Math.max(\n                    4,\n                    Math.min(\n                    
-    top,\n                        window.innerHeight -\n                        height -\n                        4\n                    )\n                );\n\n            return {\n    
-            left,\n                top,\n                width,\n                height\n            };\n        };\n\n    const saveGeometry =\n        () => {\n            try {\n       
-         localStorage.setItem(\n                    COMMAND_PANEL_POSITION_KEY,\n                    JSON.stringify({\n                        left:\n                            panel.offs
-etLeft,\n                        top:\n                            panel.offsetTop\n                    })\n                );\n\n                localStorage.setItem(\n                   
- COMMAND_PANEL_SIZE_KEY,\n                    JSON.stringify({\n                        width:\n                            panel.offsetWidth,\n                        height:\n           
-                 panel.offsetHeight\n                    })\n                );\n            } catch (_) {}\n        };\n\n    const dragStart =\n        (event) => {\n            if (\n  
-              event.button !== 0 ||\n                event.target?.closest?.("button")\n            ) {\n                return;\n            }\n\n            event.preventDefault();\n\n  
-          const startX =\n                event.clientX;\n\n            const startY =\n                event.clientY;\n\n            const startLeft =\n                panel.offsetLeft;\n
-\n            const startTop =\n                panel.offsetTop;\n\n            const move =\n                (moveEvent) => {\n                    const geometry =\n                      
-  clampPanel(\n                            startLeft +\n                                moveEvent.clientX -\n                                startX,\n                            startTop +
-\n                                moveEvent.clientY -\n                                startY,\n                            panel.offsetWidth,\n                            panel.offsetHeig
-ht\n                        );\n\n                    panel.style.left =\n                        `${geometry.left}px`;\n\n                    panel.style.top =\n                        `$
-{geometry.top}px`;\n\n                    panel.style.bottom =\n                        "auto";\n                };\n\n            const stop =\n                () => {\n                  
-  window.removeEventListener(\n                        "pointermove",\n                        move\n                    );\n\n                    window.removeEventListener(\n            
-            "pointerup",\n                        stop\n                    );\n\n                    saveGeometry();\n                };\n\n            window.addEventListener(\n         
-       "pointermove",\n                move\n            );\n\n            window.addEventListener(\n                "pointerup",\n                stop,\n                { once: true }\n  
-          );\n        };\n\n    header.addEventListener(\n        "pointerdown",\n        dragStart\n    );\n\n    current.addEventListener(\n        "pointerdown",\n        dragStart\n   
- );\n\n    const handles = [\n        ["n", "ns-resize"],\n        ["s", "ns-resize"],\n        ["e", "ew-resize"],\n        ["w", "ew-resize"],\n        ["ne", "nesw-resize"],\n        ["
-sw", "nesw-resize"],\n        ["nw", "nwse-resize"],\n        ["se", "nwse-resize"]\n    ];\n\n    const handleStyle = {\n        position: "absolute",\n        zIndex: "3"\n    };\n\n    
-for (\n        const [direction, cursor]\n        of handles\n    ) {\n        const handle =\n            document.createElement("div");\n\n        handle.dataset.direction =\n           
- direction;\n\n        Object.assign(\n            handle.style,\n            handleStyle,\n            {\n                cursor,\n                userSelect: "none",\n                tou
-chAction: "none"\n            }\n        );\n\n        if (direction === "n") {\n            Object.assign(\n                handle.style,\n                {\n                    top: "-4p
-x",\n                    left: "8px",\n                    right: "8px",\n                    height: "9px"\n                }\n            );\n        }\n\n        if (direction === "s") 
-{\n            Object.assign(\n                handle.style,\n                {\n                    bottom: "-4px",\n                    left: "8px",\n                    right: "8px",\n 
-                   height: "9px"\n                }\n            );\n        }\n\n        if (direction === "e") {\n            Object.assign(\n                handle.style,\n             
-   {\n                    right: "-4px",\n                    top: "8px",\n                    bottom: "8px",\n                    width: "9px"\n                }\n            );\n        
-}\n\n        if (direction === "w") {\n            Object.assign(\n                handle.style,\n                {\n                    left: "-4px",\n                    top: "8px",\n   
-                 bottom: "8px",\n                    width: "9px"\n                }\n            );\n        }\n\n        if (direction === "ne") {\n            Object.assign(\n          
-      handle.style,\n                {\n                    top: "-5px",\n                    right: "-5px",\n                    width: "12px",\n                    height: "12px"\n      
-          }\n            );\n        }\n\n        if (direction === "nw") {\n            Object.assign(\n                handle.style,\n                {\n                    top: "-5px",\
-n                    left: "-5px",\n                    width: "12px",\n                    height: "12px"\n                }\n            );\n        }\n\n        if (direction === "se") 
-{\n            Object.assign(\n                handle.style,\n                {\n                    bottom: "-5px",\n                    right: "-5px",\n                    width: "12px",
-\n                    height: "12px"\n                }\n            );\n        }\n\n        if (direction === "sw") {\n            Object.assign(\n                handle.style,\n        
-        {\n                    bottom: "-5px",\n                    left: "-5px",\n                    width: "12px",\n                    height: "12px"\n                }\n            );
-\n        }\n\n        panel.appendChild(handle);\n\n        handle.addEventListener(\n            "pointerdown",\n            (event) => {\n                if (\n                    event
-.button !== 0\n                ) {\n                    return;\n                }\n\n                event.preventDefault();\n                event.stopPropagation();\n\n                c
-onst startX =\n                    event.clientX;\n\n                const startY =\n                    event.clientY;\n\n                const startLeft =\n                    panel.offs
-etLeft;\n\n                const startTop =\n                    panel.offsetTop;\n\n                const startWidth =\n                    panel.offsetWidth;\n\n                const sta
-rtHeight =\n                    panel.offsetHeight;\n\n                const move =\n                    (moveEvent) => {\n                        let left =\n                            s
-tartLeft;\n\n                        let top =\n                            startTop;\n\n                        let width =\n                            startWidth;\n\n                   
-     let height =\n                            startHeight;\n\n                        const dx =\n                            moveEvent.clientX -\n                            startX;\n\n 
-                       const dy =\n                            moveEvent.clientY -\n                            startY;\n\n                        if (\n                            directi
-on.includes("e")\n                        ) {\n                            width =\n                                startWidth +\n                                dx;\n                     
-   }\n\n                        if (\n                            direction.includes("s")\n                        ) {\n                            height =\n                              
-  startHeight +\n                                dy;\n                        }\n\n                        if (\n                            direction.includes("w")\n                      
-  ) {\n                            width =\n                                startWidth -\n                                dx;\n\n                            left =\n                       
-         startLeft +\n                                dx;\n                        }\n\n                        if (\n                            direction.includes("n")\n                 
-       ) {\n                            height =\n                                startHeight -\n                                dy;\n\n                            top =\n                 
-               startTop +\n                                dy;\n                        }\n\n                        const geometry =\n                            clampPanel(\n            
-                    left,\n                                top,\n                                width,\n                                height\n                            );\n\n         
-               panel.style.left =\n                            `${geometry.left}px`;\n\n                        panel.style.top =\n                            `${geometry.top}px`;\n\n     
-                   panel.style.bottom =\n                            "auto";\n\n                        panel.style.width =\n                            `${geometry.width}px`;\n\n         
-               panel.style.height =\n                            `${geometry.height}px`;\n                    };\n\n                const stop =\n                    () => {\n             
-           window.removeEventListener(\n                            "pointermove",\n                            move\n                        );\n\n                        window.removeEve
-ntListener(\n                            "pointerup",\n                            stop\n                        );\n\n                        saveGeometry();\n                    };\n\n  
-              window.addEventListener(\n                    "pointermove",\n                    move\n                );\n\n                window.addEventListener(\n                    "p
-ointerup",\n                    stop,\n                    { once: true }\n                );\n            }\n        );\n    }\n\n    const updateCompactMode =\n        () => {\n         
-   if (!commandPanel) {\n                return;\n            }\n\n            const compact =\n                commandPanel.offsetWidth < 230;\n\n            const micro =\n              
-  commandPanel.offsetWidth < 90;\n\n            title.style.display =\n                compact || micro\n                    ? "none"\n                    : "block";\n\n            history
-Title.style.display =\n                compact || micro\n                    ? "none"\n                    : "block";\n\n            commandPanelHistoryBox.style.display =\n               
- compact || micro\n                    ? "none"\n                    : "block";\n\n            header.style.justifyContent =\n                compact\n                    ? "flex-end"\n   
-                 : "space-between";\n\n            current.style.justifyContent =\n                micro\n                    ? "center"\n                    : "flex-start";\n\n           
- currentText.style.display =\n                micro\n                    ? "none"\n                    : "block";\n\n            header.style.display =\n                micro\n            
-        ? "none"\n                    : "flex";\n\n            saveGeometry();\n        };\n\n    if (\n        typeof ResizeObserver === "function"\n    ) {\n        const observer =\n   
-         new ResizeObserver(\n                updateCompactMode\n            );\n\n        observer.observe(panel);\n    }\n\n    window.addEventListener(\n        "resize",\n        () =>
- {\n            const geometry =\n                clampPanel(\n                    panel.offsetLeft,\n                    panel.offsetTop,\n                    panel.offsetWidth,\n        
-            panel.offsetHeight\n                );\n\n            panel.style.left =\n                `${geometry.left}px`;\n\n            panel.style.top =\n                `${geometry.to
-p}px`;\n\n            panel.style.bottom =\n                "auto";\n\n            panel.style.width =\n                `${geometry.width}px`;\n\n            panel.style.height =\n        
-        `${geometry.height}px`;\n\n            saveGeometry();\n        }\n    );\n\n    updateCompactMode();\n\n    renderCommandHistory();\n\n    return panel;\n}\n\nfunction renderComma
-ndHistory() {\n    ensureCommandPanel();\n\n    if (!commandPanelHistoryBox) {\n        return;\n    }\n\n    commandPanelHistoryBox.replaceChildren();\n\n    const history =\n        load
-CommandHistory();\n\n    for (const item of history) {\n        const meta =\n            commandStatusMeta(\n                item.state\n            );\n\n        const row =\n           
- document.createElement("div");\n\n        Object.assign(\n            row.style,\n            {\n                color: meta.color,\n                padding: "4px 2px",\n                b
-orderBottom: "1px solid var(--agx-panel-divider)",\n                overflow: "hidden",\n                textOverflow: "ellipsis",\n                whiteSpace: "nowrap"\n            }\n   
-     );\n\n        const time =\n            document.createElement("span");\n\n        time.textContent =\n            item.time || "";\n\n        time.style.opacity =\n            "0.65"
-;\n\n        const action =\n            document.createElement("span");\n\n        action.textContent =\n            item.action || "command";\n\n        const status =\n            docum
-ent.createElement("span");\n\n        status.textContent =\n            ` Ч ${meta.label}`;\n\n        row.appendChild(time);\n        row.appendChild(\n            document.createTextNode
-(" ")\n        );\n        row.appendChild(action);\n        row.appendChild(status);\n\n        if (item.detail) {\n            const detail =\n                document.createElement("spa
-n");\n\n            detail.textContent =\n                ` Ч ${item.detail}`;\n\n            detail.style.opacity =\n                "0.75";\n\n            row.appendChild(detail);\n     
-   }\n\n        commandPanelHistoryBox.appendChild(row);\n    }\n}\n\nfunction setCommandStatus(\n    action,\n    state,\n    detail = "",\n    historyId = null\n) {\n    ensureCommandPan
-el();\n\n    const meta =\n        commandStatusMeta(state);\n\n    if (commandPanelCurrentDot) {\n        commandPanelCurrentDot.style.color =\n            meta.color;\n    }\n\n    if (c
-ommandPanelCurrentText) {\n        commandPanelCurrentText.textContent =\n            `${meta.label}: ${action}` +\n            (detail\n                ? ` Ч ${detail}`\n                :
- "");\n\n        commandPanelCurrentText.style.color =\n            meta.color;\n    }\n\n    document.documentElement.dataset\n        .agentChataiCommandStatus =\n        state;\n\n    c
-onst history =\n        loadCommandHistory();\n\n    const index =\n        historyId\n            ? history.findIndex(\n                (item) =>\n                    item.id === historyI
-d\n            )\n            : -1;\n\n    const now =\n        new Date();\n\n    if (index >= 0) {\n        history[index] = {\n            ...history[index],\n            action,\n     
-       state,\n            detail,\n            time:\n                history[index].time ||\n                now.toLocaleTimeString()\n        };\n    } else {\n        history.unshift({
-\n            id:\n                historyId ||\n                (\n                    globalThis.crypto?.randomUUID\n                        ? crypto.randomUUID()\n                      
-  : `${Date.now()}-${Math.random()}`\n                ),\n            action,\n            state,\n            detail,\n            time:\n                now.toLocaleTimeString()\n       
- });\n    }\n\n    saveCommandHistory(history);\n\n    renderCommandHistory();\n}\nfunction reportCommandContainers(containers) {\n    for (const container of containers) {\n        if (co
-ntainer === lastCommandContainer) {\n            continue;\n        }\n\n        lastCommandContainer = container;\n\n        const actionName =\n            getCommandAction(container);\n
-\n        const historyId =\n            globalThis.crypto?.randomUUID\n                ? crypto.randomUUID()\n                : `${Date.now()}-${Math.random()}`;\n\n        setCommandStat
-us(\n            actionName,\n            "running",\n            "",\n            historyId\n        );\n\n        document.documentElement.dataset\n            .agentChataiAgxFound = "1"
-;\n\n        chrome.runtime.sendMessage(\n            {\n                type: "AGX_COMMAND_DETECTED",\n                containers: [container]\n            },\n            (response) => {
-\n                if (chrome.runtime.lastError) {\n                    const message =\n                        chrome.runtime.lastError.message ||\n                        "unknown_error"
-;\n\n                    setCommandStatus(\n                        actionName,\n                        "error",\n                        message,\n                        historyId\n    
-                );\n\n                    document.documentElement.dataset\n                        .agentChataiGatewayError =\n                        message;\n\n                    retu
-rn;\n                }\n\n                if (!response || !response.ok) {\n                    const message =\n                        response?.message ||\n                        respo
-nse?.error ||\n                        "unknown_error";\n\n                    setCommandStatus(\n                        actionName,\n                        "error",\n                   
-     message,\n                        historyId\n                    );\n\n                    document.documentElement.dataset\n                        .agentChataiGatewayError =\n      
-                  message;\n\n                    return;\n                }\n\n                document.documentElement.dataset\n                    .agentChataiBackgroundAck = "1";\n\n  
-              document.documentElement.dataset\n                    .agentChataiGatewayAck = "1";\n\n                document.documentElement.dataset\n                    .agentChataiSigna
-tureVerified =\n                    response.signatureVerified === true\n                        ? "1"\n                        : "0";\n\n                document.documentElement.dataset\n
-                    .agentChataiGatewayResult =\n                    response.signatureVerified === true\n                        ? "received"\n                        : "rejected";\n\n   
-             document.documentElement.dataset\n                    .agentChataiResultStatus =\n                    response.resultStatus || "";\n\n                if (\n                   
- response.signatureVerified !== true\n                ) {\n                    setCommandStatus(\n                        actionName,\n                        "error",\n                   
-     "RESULT signature rejected",\n                        historyId\n                    );\n\n                    return;\n                }\n\n                if (\n                    
-response.confirmationRequired &&\n                    response.confirmationToken\n                ) {\n                    setCommandStatus(\n                        actionName,\n         
-               "confirm",\n                        "╥ЁхсєхЄё  яюфЄтхЁцфхэшх",\n                        historyId\n                    );\n\n                    showConfirmationBar(\n      
-                  response\n                    );\n\n                    return;\n                }\n\n                if (\n                    response.resultContainer\n                
-) {\n                    setCommandStatus(\n                        actionName,\n                        response.resultStatus === "ok"\n                            ? "done"\n             
-               : "error",\n                        response.resultStatus || "",\n                        historyId\n                    );\n\n                    publishResultToChat(\n    
-                    response.resultContainer\n                    );\n\n                    return;\n                }\n\n                setCommandStatus(\n                    actionName,
-\n                    "error",\n                    "Gateway returned no RESULT",\n                    historyId\n                );\n            }\n        );\n    }\n}\n\nfunction inspec
-tDocument() {\n    if (!commandBridgeEnabled) {\n        return;\n    }\n\n    const commandContainers =\n        extractCommandContainers(\n            document.body?.innerText || ""\n   
-     );\n\n    if (commandContainers.length > 0) {\n        reportCommandContainers(commandContainers);\n    }\n    const text =\n        document.body?.innerText ||\n        document.docu
-mentElement?.innerText ||\n        "";\n\n    reportContainers(\n        extractActionContainers(text)\n    );\n}\n\nfunction traceDiscoveryUserEvent(event) {\n    discoveryTrace(\n       
- "window_user_event",\n        {\n            type:\n                event?.type || "",\n            isTrusted:\n                event?.isTrusted === true,\n            key:\n             
-   event?.key || "",\n            code:\n                event?.code || "",\n            pointerType:\n                event?.pointerType || "",\n            button:\n                typeo
-f event?.button === "number"\n                    ? event.button\n                    : null,\n            target:\n                describeDiscoveryElement(\n                    event?.ta
-rget\n                ),\n            submitter:\n                describeDiscoveryElement(\n                    event?.submitter\n                ),\n            path:\n                di
-scoveryTraceEventPath(\n                    event\n                )\n        }\n    );\n}\n\nfunction handleChatDiscoverySubmit(event) {\n    discoveryTrace(\n        "submit_event",\n   
-     {\n            isTrusted:\n                event?.isTrusted === true,\n            submitter:\n                describeDiscoveryElement(\n                    event?.submitter\n       
-         ),\n            target:\n                describeDiscoveryElement(\n                    event?.target\n                ),\n            path:\n                discoveryTraceEventPa
-th(\n                    event\n                )\n        }\n    );\n\n    if (\n        !chatDiscovery.active ||\n        chatDiscovery.phase !==\n            "wait_send" ||\n        eve
-nt?.isTrusted !== true ||\n        !event?.submitter\n    ) {\n        return;\n    }\n\n    const actionTarget =\n        event.submitter;\n\n    beginDiscoverySendCandidate(\n        act
-ionTarget,\n        "submit"\n    );\n\n    finalizeDiscoverySendCandidate(\n        actionTarget,\n        "trusted_submit_event"\n    );\n}\n\nfor (const eventName of [\n    "pointerdown
-",\n    "pointerup",\n    "click",\n    "mousedown",\n    "mouseup",\n    "touchstart",\n    "touchend",\n    "keydown"\n]) {\n    window.addEventListener(\n        eventName,\n        tra
-ceDiscoveryUserEvent,\n        true\n    );\n}\n\ndocument.addEventListener(\n    "submit",\n    handleChatDiscoverySubmit,\n    true\n);\n\ndocument.addEventListener(\n    "input",\n    h
-andleChatDiscoveryInput,\n    true\n);\n\nlet discoveryPollTimer = null;\n\nfunction scheduleDiscoveryPoll() {\n    if (discoveryPollTimer !== null) {\n        return;\n    }\n\n    discov
-eryPollTimer =\n        window.setInterval(() => {\n            if (!chatDiscovery.active) {\n                window.clearInterval(\n                    discoveryPollTimer\n               
- );\n                discoveryPollTimer = null;\n                return;\n            }\n\n            if (\n                chatDiscovery.phase ===\n                "wait_input"\n        
-    ) {\n                scanForDiscoveryInput();\n            } else if (\n                chatDiscovery.phase ===\n                "wait_send"\n            ) {\n                pollDisco
-verySendCandidate();\n            } else if (\n                chatDiscovery.phase ===\n                "wait_message"\n            ) {\n                runChatDiscoveryScan();\n          
-  }\n        }, 100);\n}\n\ndocument.addEventListener(\n    "paste",\n    (event) => {\n        if (\n            !chatDiscovery.active ||\n            chatDiscovery.phase !==\n           
-     "wait_input"\n        ) {\n            return;\n        }\n\n        handleChatDiscoveryInput(event);\n\n        window.setTimeout(\n            () => {\n                scanForDiscov
-eryInput();\n            },\n            0\n        );\n    },\n    true\n);\n\ndocument.addEventListener(\n    "focusin",\n    (event) => {\n        if (\n            !chatDiscovery.activ
-e ||\n            chatDiscovery.phase !==\n                "wait_input"\n        ) {\n            return;\n        }\n\n        handleChatDiscoveryInput(event);\n    },\n    true\n);\n\nfo
-r (const eventName of [\n    "pointerdown",\n    "pointerup",\n    "click"\n]) {\n    document.addEventListener(\n        eventName,\n        handleChatDiscoveryClick,\n        true\n    )
-;\n}\n\ninspectDocument();\n\nlet inspectTimer = null;\n\nfunction scheduleInspectDocument() {\n    if (inspectTimer !== null) {\n        return;\n    }\n\n    inspectTimer = window.setTim
-eout(() => {\n        inspectTimer = null;\n        inspectDocument();\n    }, 50);\n}\n\nconst observer = new MutationObserver(\n    (mutations) => {\n        for (const mutation of mutat
-ions) {\n            if (\n                (mutation.type === "childList" &&\n                    mutation.addedNodes.length > 0) ||\n                mutation.type === "characterData"\n   
-         ) {\n                scheduleInspectDocument();\n                break;\n            }\n        }\n\n        if (\n            chatDiscovery.active &&\n            chatDiscovery.p
-hase ===\n                "wait_message"\n        ) {\n            runChatDiscoveryScan();\n        }\n    }\n);\n\nobserver.observe(\n    document.documentElement,\n    {\n        childLi
-st: true,\n        subtree: true,\n        characterData: true\n    }\n);\n\nscheduleInspectDocument();\nobserver.observe(\n    document.documentElement,\n    {\n        childList: true,\n
-        subtree: true\n    }\n);\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndocument.documentElement.dataset.agentChataiBridgeEnabled = "0";\n\nfunction agentChataiBridgeShortcutHandler(event) {\n    if
- (\n        event.altKey &&\n        event.shiftKey &&\n        event.code === "KeyA" &&\n        !event.ctrlKey &&\n        !event.metaKey\n    ) {\n        event.preventDefault();\n     
-   event.stopPropagation();\n        toggleCommandPanel();\n    }\n}\n\nwindow.addEventListener(\n    "keydown",\n    agentChataiBridgeShortcutHandler,\n    true\n);\n\n\n\n\n\n\n'
+test_content_captures_generic_send_control_from_event_path (tests.test_browser_discovery.TestBrowserDiscoveryStatic.test_content_captures_generic_send_control_from_event_path) ... ok
+test_content_captures_real_event_target (tests.test_browser_discovery.TestBrowserDiscoveryStatic.test_content_captures_real_event_target) ... ok
+test_content_does_not_search_original_phrase_for_answer (tests.test_browser_discovery.TestBrowserDiscoveryStatic.test_content_does_not_search_original_phrase_for_answer) ... ok
+test_content_has_discovery_protocol (tests.test_browser_discovery.TestBrowserDiscoveryStatic.test_content_has_discovery_protocol) ... ok
+test_content_has_dynamic_dom_fallbacks (tests.test_browser_discovery.TestBrowserDiscoveryStatic.test_content_has_dynamic_dom_fallbacks) ... ok
+test_content_learns_three_targets (tests.test_browser_discovery.TestBrowserDiscoveryStatic.test_content_learns_three_targets) ... ok
+test_content_requires_expected_result (tests.test_browser_discovery.TestBrowserDiscoveryStatic.test_content_requires_expected_result) ... ok
+test_content_supports_open_shadow_dom_discovery (tests.test_browser_discovery.TestBrowserDiscoveryStatic.test_content_supports_open_shadow_dom_discovery) ... ok
+test_discovery_allows_existing_result_in_history (tests.test_browser_discovery.TestBrowserDiscoveryStatic.test_discovery_allows_existing_result_in_history) ... ok
+test_discovery_does_not_filter_send_control_state (tests.test_browser_discovery.TestBrowserDiscoveryStatic.test_discovery_does_not_filter_send_control_state) ... ok
+test_discovery_has_trace_instrumentation (tests.test_browser_discovery.TestBrowserDiscoveryStatic.test_discovery_has_trace_instrumentation) ... ok
+test_discovery_requires_submission_evidence_before_accepting_send_control (tests.test_browser_discovery.TestBrowserDiscoveryStatic.test_discovery_requires_submission_evidence_before_accept
+ing_send_control) ... ok
+test_discovery_state_reports_trace (tests.test_browser_discovery.TestBrowserDiscoveryStatic.test_discovery_state_reports_trace) ... ok
+test_discovery_traces_submit_actions (tests.test_browser_discovery.TestBrowserDiscoveryStatic.test_discovery_traces_submit_actions) ... ok
+test_discovery_traces_window_user_events (tests.test_browser_discovery.TestBrowserDiscoveryStatic.test_discovery_traces_window_user_events) ... ok
+test_discovery_uses_trusted_user_action (tests.test_browser_discovery.TestBrowserDiscoveryStatic.test_discovery_uses_trusted_user_action) ... ok
+test_popup_computes_expected_result (tests.test_browser_discovery.TestBrowserDiscoveryStatic.test_popup_computes_expected_result) ... ok
+test_popup_contains_discovery_ui (tests.test_browser_discovery.TestBrowserDiscoveryStatic.test_popup_contains_discovery_ui) ... ok
+test_popup_generates_required_phrase (tests.test_browser_discovery.TestBrowserDiscoveryStatic.test_popup_generates_required_phrase) ... ok
+test_popup_has_discovery_messages (tests.test_browser_discovery.TestBrowserDiscoveryStatic.test_popup_has_discovery_messages) ... ok
+test_result_submission_prefers_learned_send_button (tests.test_browser_discovery.TestBrowserDiscoveryStatic.test_result_submission_prefers_learned_send_button) ... ok
+test_private_key_generation_is_non_extractable (tests.test_browser_keys_static.TestBrowserKeysStatic.test_private_key_generation_is_non_extractable) ... ok
+test_private_key_is_never_exported (tests.test_browser_keys_static.TestBrowserKeysStatic.test_private_key_is_never_exported) ... ok
+test_public_key_export_remains_present (tests.test_browser_keys_static.TestBrowserKeysStatic.test_public_key_export_remains_present) ... ok
+test_args_must_be_object (tests.test_command.TestCommand.test_args_must_be_object) ... ok
+test_invalid_action_is_rejected (tests.test_command.TestCommand.test_invalid_action_is_rejected) ... ok
+test_invalid_container_is_rejected (tests.test_command.TestCommand.test_invalid_container_is_rejected) ... ok
+test_missing_action_is_rejected (tests.test_command.TestCommand.test_missing_action_is_rejected) ... ok
+test_roundtrip (tests.test_command.TestCommand.test_roundtrip) ... ok
+test_roundtrip_preserves_unicode_and_nested_args (tests.test_command.TestCommand.test_roundtrip_preserves_unicode_and_nested_args) ... ok
+test_tamper_is_detected (tests.test_command.TestCommand.test_tamper_is_detected) ... ok
+test_wrong_kind_is_rejected (tests.test_command.TestCommand.test_wrong_kind_is_rejected) ... ok
+test_cancel_invalidates_token (tests.test_confirmation.TestConfirmationStore.test_cancel_invalidates_token) ... ok
+test_create_and_consume (tests.test_confirmation.TestConfirmationStore.test_create_and_consume) ... ok
+test_duplicate_container_reuses_pending_token (tests.test_confirmation.TestConfirmationStore.test_duplicate_container_reuses_pending_token) ... ok
+test_expired_token_is_rejected (tests.test_confirmation.TestConfirmationStore.test_expired_token_is_rejected) ... ok
+test_invalid_token_is_rejected (tests.test_confirmation.TestConfirmationStore.test_invalid_token_is_rejected) ... ok
+test_new_token_is_created_after_cancel (tests.test_confirmation.TestConfirmationStore.test_new_token_is_created_after_cancel) ... ok
+test_token_is_one_time (tests.test_confirmation.TestConfirmationStore.test_token_is_one_time) ... ok
+test_allowed_action_returns_authenticated_result (tests.test_executor.TestGatewayExecutor.test_allowed_action_returns_authenticated_result) ... ok
+test_confirmation_action_does_not_execute (tests.test_executor_policy.TestGatewayExecutorPolicy.test_confirmation_action_does_not_execute) ... ok
+test_denied_action_returns_denied_result (tests.test_executor_policy.TestGatewayExecutorPolicy.test_denied_action_returns_denied_result) ... ok
+test_allowed_action (tests.test_gateway.TestGateway.test_allowed_action) ... ok
+test_confirmation_required (tests.test_gateway.TestGateway.test_confirmation_required) ... ok
+test_replay_is_rejected (tests.test_gateway.TestGateway.test_replay_is_rejected) ... ok
+test_unknown_action_is_denied (tests.test_gateway.TestGateway.test_unknown_action_is_denied) ... ok
+test_multiple_browser_keys_are_accepted (tests.test_multi_browser_pairing.TestMultiBrowserPairing.test_multiple_browser_keys_are_accepted) ... ok
+test_pairing_can_add_second_browser (tests.test_multi_browser_pairing.TestMultiBrowserPairing.test_pairing_can_add_second_browser) ... ok
+test_pairing_is_one_time (tests.test_pairing.TestPairingManager.test_pairing_is_one_time) ... ok
+test_pairing_with_valid_code_and_key (tests.test_pairing.TestPairingManager.test_pairing_with_valid_code_and_key) ... ok
+test_wrong_code_is_rejected (tests.test_pairing.TestPairingManager.test_wrong_code_is_rejected) ... ok
+test_allow (tests.test_policy.TestPolicyEngine.test_allow) ... ok
+test_confirm (tests.test_policy.TestPolicyEngine.test_confirm) ... ok
+test_explicit_deny_has_priority (tests.test_policy.TestPolicyEngine.test_explicit_deny_has_priority) ... ok
+test_unknown_action_is_denied (tests.test_policy.TestPolicyEngine.test_unknown_action_is_denied) ... ok
+test_replay_survives_gateway_restart (tests.test_replay_persistence.TestReplayPersistence.test_replay_survives_gateway_restart) ... ok
+test_action_endpoint (tests.test_server.TestGatewayHTTP.test_action_endpoint) ... ok
+test_cancel_endpoint (tests.test_server.TestGatewayHTTP.test_cancel_endpoint) ... ok
+test_command_endpoint (tests.test_server.TestGatewayHTTP.test_command_endpoint) ... ok
+test_command_endpoint_rejects_tampered_container (tests.test_server.TestGatewayHTTP.test_command_endpoint_rejects_tampered_container) ... ok
+test_confirmation_endpoint (tests.test_server.TestGatewayHTTP.test_confirmation_endpoint) ... ok
+test_duplicate_confirmation_request_reuses_token (tests.test_server.TestGatewayHTTP.test_duplicate_confirmation_request_reuses_token) ... ok
+test_unpaired_gateway_rejects_action (tests.test_server.TestGatewayHTTP.test_unpaired_gateway_rejects_action) ... ok
+test_http_cancel_lifecycle_is_audited (tests.test_server_audit.TestGatewayHTTPAudit.test_http_cancel_lifecycle_is_audited) ... ok
+test_http_confirm_lifecycle_is_audited (tests.test_server_audit.TestGatewayHTTPAudit.test_http_confirm_lifecycle_is_audited) ... ok
+test_signed_action_is_accepted (tests.test_server_auth.TestGatewayHTTPAuth.test_signed_action_is_accepted) ... ok
+test_tampered_body_is_rejected (tests.test_server_auth.TestGatewayHTTPAuth.test_tampered_body_is_rejected) ... ok
+test_unpaired_like_request_is_rejected (tests.test_server_auth.TestGatewayHTTPAuth.test_unpaired_like_request_is_rejected) ... ok
+test_key_survives_reload (tests.test_signing.TestResultSigner.test_key_survives_reload) ... ok
+test_signature_verifies_with_public_key (tests.test_signing.TestResultSigner.test_signature_verifies_with_public_key) ... ok
+test_tampered_data_is_rejected (tests.test_signing.TestResultSigner.test_tampered_data_is_rejected) ... ok
 
 ----------------------------------------------------------------------
-Ran 8 tests in 0.008s
+Ran 108 tests in 7.221s
 
-FAILED (failures=1)
+OK
+[GatewayHTTP] "POST /v1/action HTTP/1.1" 200 -
+[GatewayHTTP] "POST /v1/action HTTP/1.1" 200 -
+[GatewayHTTP] "POST /v1/cancel HTTP/1.1" 200 -
+[GatewayHTTP] "POST /v1/confirm HTTP/1.1" 409 -
+[GatewayHTTP] "POST /v1/command HTTP/1.1" 200 -
+[GatewayHTTP] "POST /v1/command HTTP/1.1" 409 -
+[GatewayHTTP] "POST /v1/action HTTP/1.1" 200 -
+[GatewayHTTP] "POST /v1/confirm HTTP/1.1" 200 -
+[GatewayHTTP] "POST /v1/confirm HTTP/1.1" 409 -
+[GatewayHTTP] "POST /v1/action HTTP/1.1" 200 -
+[GatewayHTTP] "POST /v1/action HTTP/1.1" 200 -
+[GatewayHTTP] "POST /v1/action HTTP/1.1" 401 -
+[GatewayHTTP] "POST /v1/action HTTP/1.1" 200 -
+[GatewayHTTP] "POST /v1/cancel HTTP/1.1" 200 -
+[GatewayHTTP] "POST /v1/confirm HTTP/1.1" 409 -
+[GatewayHTTP] "POST /v1/action HTTP/1.1" 200 -
+[GatewayHTTP] "POST /v1/confirm HTTP/1.1" 200 -
+[GatewayHTTP] "GET /v1/auth/challenge HTTP/1.1" 200 -
+[GatewayHTTP] "POST /v1/action HTTP/1.1" 200 -
+[GatewayHTTP] "GET /v1/auth/challenge HTTP/1.1" 200 -
+[GatewayHTTP] "POST /v1/action HTTP/1.1" 401 -
+[GatewayHTTP] "POST /v1/action HTTP/1.1" 401 -
 
