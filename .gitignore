@@ -1,0 +1,49 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs and temporary local files
+*.log
+logs/
+tmp/
+temp/
+cache/
+
+# Environment secrets
+.env
+.env.*
+*.pem
+*.key
+*.pfx
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build output
+dist/
+build/
+out/
+coverage/
+
+# Buffer-drops result file must remain trackable.
+# Do not ignore latest.txt.
+!latest.txt
